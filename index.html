@@ -64,6 +64,116 @@
         .buttons, .form-elements {
             margin-top: 30px;
         }
+
+        /* Snowflake and Leaf Animations */
+        @keyframes snowflakes {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        .snowflake {
+            color: white;
+            font-size: 1.5em;
+            position: fixed;
+            top: -10%;
+            z-index: 9999;
+            user-select: none;
+            pointer-events: none;
+            animation: snowflakes 10s linear infinite;
+        }
+
+        .snowflake:nth-child(odd) {
+            animation-duration: 8s;
+        }
+
+        .snowflake:nth-child(even) {
+            animation-duration: 12s;
+        }
+
+        @keyframes leaves {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .leaf {
+            color: #d35400;
+            font-size: 2em;
+            position: fixed;
+            top: -10%;
+            z-index: 9999;
+            user-select: none;
+            pointer-events: none;
+            animation: leaves 12s linear infinite;
+        }
+
+        .leaf:nth-child(odd) {
+            animation-duration: 10s;
+        }
+
+        .leaf:nth-child(even) {
+            animation-duration: 14s;
+        }
+
+        /* Distribute Snowflakes and Leaves Randomly */
+        .snowflake, .leaf {
+            left: calc(var(--i) * 10%);
+            --i: 1;
+        }
+
+        .snowflake:nth-child(1) { --i: 1; }
+        .snowflake:nth-child(2) { --i: 2; }
+        .snowflake:nth-child(3) { --i: 3; }
+        .snowflake:nth-child(4) { --i: 4; }
+        .snowflake:nth-child(5) { --i: 5; }
+        .snowflake:nth-child(6) { --i: 6; }
+        .snowflake:nth-child(7) { --i: 7; }
+        .snowflake:nth-child(8) { --i: 8; }
+        .snowflake:nth-child(9) { --i: 9; }
+        .snowflake:nth-child(10) { --i: 10; }
+
+        .leaf:nth-child(1) { --i: 1; }
+        .leaf:nth-child(2) { --i: 2; }
+        .leaf:nth-child(3) { --i: 3; }
+        .leaf:nth-child(4) { --i: 4; }
+        .leaf:nth-child(5) { --i: 5; }
+        .leaf:nth-child(6) { --i: 6; }
+        .leaf:nth-child(7) { --i: 7; }
+        .leaf:nth-child(8) { --i: 8; }
+        .leaf:nth-child(9) { --i: 9; }
+        .leaf:nth-child(10) { --i: 10; }
+
+        /* Additional Styling */
+        .container {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2em;
+            color: #d35400;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        /* Hide icons by default */
+        .snowflake, .leaf {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -169,7 +279,18 @@
     <script>
         // Theme Switcher
         document.getElementById("theme-selector").addEventListener("change", function() {
-            document.getElementById("theme-stylesheet").href = this.value;
+            const theme = this.value;
+            document.getElementById("theme-stylesheet").href = theme;
+
+            // Hide all icons
+            document.querySelectorAll('.snowflake, .leaf').forEach(el => el.style.display = 'none');
+
+            // Show relevant icons based on theme
+            if (theme === 'winter.css') {
+                document.querySelectorAll('.snowflake').forEach(el => el.style.display = 'block');
+            } else if (theme === 'fall.css') {
+                document.querySelectorAll('.leaf').forEach(el => el.style.display = 'block');
+            }
         });
 
         // Modal Popup
