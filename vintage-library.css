@@ -1,0 +1,137 @@
+/* Timeless Vintage Library Theme */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora&display=swap');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fdf6e3;
+  font-family: 'Lora', serif;
+  color: #3e3e3e;
+  padding: 50px;
+  line-height: 1.7;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1f1f1f;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #bfa88b;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #6b4f3c;
+  margin: 30px 0;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+/* Vintage Book Layout */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  justify-items: center;
+  margin-top: 50px;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #bfa88b;
+  padding: 20px;
+  max-width: 280px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-top: 15px;
+  color: #6b4f3c;
+}
+
+.card p {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  color: #444;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 15px;
+  color: #8a6e46;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid #8a6e46;
+  padding-bottom: 2px;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.card a:hover {
+  color: #6b4f3c;
+  border-bottom-color: #6b4f3c;
+}
+
+/* Hover Effect - Glowing Light */
+.card:hover {
+  background-color: #fbf5e7;
+  border: 2px solid #f0c8a2;
+  box-shadow: 0 6px 30px rgba(255, 204, 102, 0.4);
+}
+
+/* Scrollable Section */
+.scroll-section {
+  max-height: 400px;
+  overflow-y: scroll;
+  padding-right: 20px;
+  border-right: 2px solid #bfa88b;
+  margin-top: 40px;
+}
+
+.scroll-section p {
+  font-family: 'Lora', serif;
+  color: #3e3e3e;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Subtle Background Animation */
+@keyframes subtleBackground {
+  0% {
+    background-color: #fdf6e3;
+  }
+  100% {
+    background-color: #f4e1d2;
+  }
+}
+
+body {
+  animation: subtleBackground 60s ease-in-out infinite alternate;
+}
