@@ -1,0 +1,142 @@
+/* Elegant Mystic Forest Theme */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lora', serif;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(34, 34, 34, 1)), url('https://source.unsplash.com/1600x900/?forest,mist') no-repeat center center fixed;
+  background-size: cover;
+  color: #e4e1d7;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  color: #f1e5d6;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: transform 0.3s ease;
+}
+
+h1:hover {
+  transform: scale(1.05);
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #c1c1b3;
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 80vh;
+  display: grid;
+  place-items: center;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.9);
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #f1e5d6;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #c1c1b3;
+  margin-top: 15px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Animation Effects */
+@keyframes glowIn {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  }
+}
+
+.card:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  animation: glowIn 1.5s ease-out forwards;
+}
+
+/* Soft Scroll Animation */
+@keyframes scrollFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container, .card-container {
+  animation: scrollFadeIn 1s ease-out forwards;
+}
