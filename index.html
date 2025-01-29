@@ -6,7 +6,7 @@
     <title>CSS Theme Showcase App</title>
     <link id="theme-stylesheet" rel="stylesheet" href="default.css"> <!-- Default Theme -->
     <style>
-        /* Center text styles */
+        /* Centered text styles for general layout */
         body, header, main, footer {
             text-align: center;
         }
@@ -24,12 +24,19 @@
             font-size: 1.2rem;
             margin-top: 10px;
         }
-
-     
-
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Themes</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
     <header>
         <h1>CSS Theme Showcase</h1>
         <p>Choose a theme from the dropdown below to switch styles.</p>
@@ -50,17 +57,73 @@
             <option value="steampunk.css">Steampunk Industrial Theme</option>
         </select>
     </header>
+
     <main>
+        <!-- Hero Section -->
         <section>
             <h2>Welcome to the CSS Theme Showcase</h2>
             <p>This webpage dynamically switches between different stylesheets to display a portfolio of CSS work.</p>
-            <button class="button">Example Button</button>
-            <button class="btn">Example Button</button>
+            <button class="button">Primary Button</button>
+            <button class="btn">Secondary Button</button>
         </section>
+
+        <!-- Form Elements -->
+        <section>
+            <h2>Styled Form Elements</h2>
+            <input type="text" placeholder="Enter text here...">
+            <input type="email" placeholder="Enter your email...">
+            <div class="checkbox-container">
+                <input type="checkbox" id="themeCheckbox">
+                <label for="themeCheckbox">Enable Dark Mode</label>
+            </div>
+        </section>
+
+        <!-- Card Showcase -->
+        <section class="card-container">
+            <div class="card">
+                <img src="https://source.unsplash.com/400x250/?nature" alt="Nature Theme">
+                <h3>Nature Theme</h3>
+                <p>A theme inspired by the beauty of the natural world.</p>
+            </div>
+            <div class="card">
+                <img src="https://source.unsplash.com/400x250/?cyberpunk" alt="Cyberpunk Theme">
+                <h3>Cyberpunk Theme</h3>
+                <p>A futuristic, neon-infused style for modern designs.</p>
+            </div>
+            <div class="card">
+                <img src="https://source.unsplash.com/400x250/?books" alt="Vintage Library Theme">
+                <h3>Vintage Library</h3>
+                <p>A classic, old-school design inspired by literature.</p>
+            </div>
+        </section>
+
+        <!-- Popup Modal -->
+        <div class="modal" id="themeModal">
+            <p>Welcome to the Theme Showcase!</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
     </main>
+
     <footer>
         <p>&copy; 2025 CSS Theme Switcher</p>
     </footer>
-    <script src="theme-switcher.js"></script>
+
+    <script>
+        // Theme Switcher
+        document.getElementById("theme-selector").addEventListener("change", function() {
+            document.getElementById("theme-stylesheet").href = this.value;
+        });
+
+        // Modal Popup
+        function closeModal() {
+            document.getElementById("themeModal").classList.remove("active");
+        }
+
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById("themeModal").classList.add("active");
+            }, 2000);
+        };
+    </script>
 </body>
 </html>
