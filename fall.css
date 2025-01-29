@@ -135,3 +135,8 @@ input[type="checkbox"] {
 .leaf:nth-child(8) { --i: 8; }
 .leaf:nth-child(9) { --i: 9; }
 .leaf:nth-child(10) { --i: 10; }
+
+/* Hide icons by default */
+.leaf {
+    display: none;
+}
