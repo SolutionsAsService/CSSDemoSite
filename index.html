@@ -6,7 +6,19 @@
     <title>CSS Theme Showcase</title>
     <link id="theme-stylesheet" rel="stylesheet" href="default.css"> <!-- Default Theme -->
     <style>
-        /* Center and style the title section */
+        /* Remove preset colors to avoid interfering with CSS themes */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        /* Horizontal title layout */
         .title-container {
             display: flex;
             justify-content: center;
@@ -14,16 +26,18 @@
             padding: 20px;
             flex-wrap: wrap;
         }
+
         .title-container h1, .title-container h2 {
             margin: 0;
             font-size: 1.8rem;
             text-transform: uppercase;
         }
+
+        /* Basic navigation (unstyled so themes apply) */
         nav {
-            
             padding: 10px;
-            text-align: center;
         }
+
         nav ul {
             list-style: none;
             padding: 0;
@@ -32,18 +46,21 @@
             justify-content: center;
             gap: 20px;
         }
+
         nav ul li {
             display: inline;
         }
+
         nav ul li a {
-            color: white;
             text-decoration: none;
             font-size: 1.2rem;
         }
+
         .container {
             text-align: center;
             padding: 30px;
         }
+
         .buttons, .form-elements {
             margin-top: 30px;
         }
@@ -70,6 +87,7 @@
     <!-- Theme Selector -->
     <div class="container">
         <h2>Select a Theme</h2>
+        <p>Use the dropdown below to apply different CSS themes dynamically.</p>
         <select id="theme-selector">
             <option value="default.css">Default Theme</option>
             <option value="dark.css">Dark Theme</option>
@@ -99,7 +117,8 @@
 
         <!-- Form Elements -->
         <div class="form-elements">
-            <h2>Styled Form Inputs</h2>
+            <h2>Form Inputs</h2>
+            <p>Test how themes style form elements.</p>
             <input type="text" placeholder="Enter text here...">
             <input type="email" placeholder="Enter your email...">
             <br><br>
