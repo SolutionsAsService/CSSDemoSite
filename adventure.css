@@ -1,4 +1,6 @@
 /* Adventure/Explorer Theme */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
 body {
     font-family: 'Cinzel', serif;
     margin: 0;
@@ -26,7 +28,8 @@ h1, h2 {
     text-transform: uppercase;
 }
 
-button {
+/* Dynamic Button */
+button, .btn {
     background: linear-gradient(to right, #c97d60, #8c4a3a);
     color: #fff7e6;
     border: none;
@@ -40,12 +43,44 @@ button {
     transition: all 0.3s ease;
 }
 
-button:hover {
+button:hover, .btn:hover {
     background: linear-gradient(to left, #c97d60, #8c4a3a);
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
+button:active, .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styled Dropdown */
+select {
+    background: linear-gradient(to right, #ffe29f, #ffa751);
+    color: #2f241d;
+    border: 2px solid #8c4a3a;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.3s ease;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+select:hover {
+    background: linear-gradient(to left, #ffe29f, #ffa751);
+    border-color: #c97d60;
+}
+
+select:focus {
+    box-shadow: 0 0 5px rgba(255, 165, 81, 0.6);
+}
+
+/* Footer */
 footer {
     padding: 20px;
     background: linear-gradient(to right, #8c4a3a, #5a2b1f);
@@ -56,6 +91,7 @@ footer {
     text-shadow: 1px 1px 5px #5a2b1f;
 }
 
+/* Links */
 a {
     color: #8c4a3a;
     text-decoration: none;
@@ -67,4 +103,12 @@ a {
 a:hover {
     color: #c97d60;
     border-bottom-color: #c97d60;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
 }
