@@ -1,52 +1,203 @@
-/* General Styles for Fall Theme */
-body {
-    background: linear-gradient(to bottom, #ffebc6, #ffad33);
-    color: #333;
-    font-family: sans-serif;
-    overflow-x: hidden;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Theme Showcase</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="default.css"> <!-- Default Theme -->
+    <style>
+        /* Remove preset colors to avoid interfering with CSS themes */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Snowflake and Leaf Animations */
-@keyframes leaves {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-    100% {
-        transform: translateY(100vh) rotate(360deg);
-    }
-}
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
 
-.leaf {
-    font-size: 2em;
-    position: fixed;
-    top: -10%;
-    z-index: 9999;
-    user-select: none;
-    pointer-events: none;
-    animation: leaves 12s linear infinite;
-}
+        /* Horizontal title layout */
+        .title-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
 
-.leaf:nth-child(odd) {
-    animation-duration: 10s;
-}
+        .title-container h1, .title-container h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+        }
 
-.leaf:nth-child(even) {
-    animation-duration: 14s;
-}
+        /* Basic navigation (unstyled so themes apply) */
+        nav {
+            padding: 10px;
+        }
 
-/* Distribute Leaves Randomly */
-.leaf {
-    left: calc(var(--i) * 10%);
-    --i: 1;
-}
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
 
-.leaf:nth-child(1) { --i: 1; }
-.leaf:nth-child(2) { --i: 2; }
-.leaf:nth-child(3) { --i: 3; }
-.leaf:nth-child(4) { --i: 4; }
-.leaf:nth-child(5) { --i: 5; }
-.leaf:nth-child(6) { --i: 6; }
-.leaf:nth-child(7) { --i: 7; }
-.leaf:nth-child(8) { --i: 8; }
-.leaf:nth-child(9) { --i: 9; }
-.leaf:nth-child(10) { --i: 10; }
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .buttons, .form-elements {
+            margin-top: 30px;
+        }
+
+        /* Hide icons by default */
+        .snowflake, .leaf {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Titles in a Horizontal Row -->
+    <div class="title-container">
+        <h1>CSS Theme Showcase</h1>
+        <h2>Dynamic Style Switching</h2>
+        <h2>Interactive Elements</h2>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Themes</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Theme Selector -->
+    <div class="container">
+        <h2>Select a Theme</h2>
+        <p>Use the dropdown below to apply different CSS themes dynamically.</p>
+        <select id="theme-selector">
+            <option value="default.css">Default Theme</option>
+            <option value="dark.css">Dark Theme</option>
+            <option value="light.css">Light Theme</option>
+            <option value="modern.css">Modern Theme</option>
+            <option value="gradient.css">Gradient Theme</option>
+            <option value="monotone.css">Monotone Theme</option>
+            <option value="terminal.css">Computer Terminal Theme</option>
+            <option value="winter.css">Winter Wonderland Theme</option>
+            <option value="fall.css">Fall Theme</option>
+            <option value="futuristic.css">Futuristic Theme</option>
+            <option value="adventure.css">Adventure Theme</option>
+            <option value="cyber-night.css">Cyberpunk Nightscape Theme</option>
+            <option value="future-holo.css">Futuristic Holographic Theme</option>
+            <option value="minimal-neon.css">Minimalistic Neon Theme</option>
+            <option value="vintage-library.css">Vintage Library Theme</option>
+            <option value="mystic-forest.css">Mystical Forest Theme</option>
+            <option value="steampunk.css">Steampunk Industrial Theme</option>
+        </select>
+    </div>
+
+    <!-- Interactive Elements -->
+    <div class="container">
+        <!-- Buttons Section -->
+        <div class="buttons">
+            <h2>Styled Buttons</h2>
+            <button class="button">Primary Button</button>
+            <button class="btn">Secondary Button</button>
+        </div>
+
+        <!-- Form Elements -->
+        <div class="form-elements">
+            <h2>Form Inputs</h2>
+            <p>Test how themes style form elements.</p>
+            <input type="text" placeholder="Enter text here...">
+            <input type="email" placeholder="Enter your email...">
+            <br><br>
+            <label>
+                <input type="checkbox">
+                Enable Dark Mode
+            </label>
+        </div>
+    </div>
+
+    <!-- Snowflake Elements -->
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+
+    <!-- Leaf Elements -->
+    <div class="leaf">🍁</div>
+    <div class="leaf">🍂</div>
+    <div class="leaf">🍃</div>
+    <div class="leaf">🍁</div>
+    <div class="leaf">🍂</div>
+    <div class="leaf">🍃</div>
+    <div class="leaf">🍁</div>
+    <div class="leaf">🍂</div>
+    <div class="leaf">🍃</div>
+    <div class="leaf">🍁</div>
+
+    <!-- Popup Modal -->
+    <div class="modal" id="themeModal">
+        <p>Welcome to the Theme Showcase!</p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CSS Theme Switcher</p>
+    </footer>
+
+    <script>
+        // Theme Switcher
+        document.getElementById("theme-selector").addEventListener("change", function() {
+            const theme = this.value;
+            document.getElementById("theme-stylesheet").href = theme;
+
+            // Hide all icons
+            document.querySelectorAll('.snowflake, .leaf').forEach(el => el.style.display = 'none');
+
+            // Show relevant icons based on theme
+            if (theme === 'winter.css') {
+                document.querySelectorAll('.snowflake').forEach(el => el.style.display = 'block');
+            } else if (theme === 'fall.css') {
+                document.querySelectorAll('.leaf').forEach(el => el.style.display = 'block');
+            }
+        });
+
+        // Modal Popup
+        function closeModal() {
+            document.getElementById("themeModal").classList.remove("active");
+        }
+
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById("themeModal").classList.add("active");
+            }, 2000);
+        };
+    </script>
+</body>
+</html>
