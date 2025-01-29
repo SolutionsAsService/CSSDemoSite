@@ -1,0 +1,194 @@
+/* Importing Terminal-like Font */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #00ff00;
+  font-family: 'Source Code Pro', monospace;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Header and Navigation */
+header {
+  width: 100%;
+  background-color: #222;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+  width: 100%;
+  background-color: #111;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  color: #00ff00;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1.2rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 10px 0;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Buttons */
+button {
+  background-color: #111;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #00ff00;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* Forms */
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #00ff00;
+  border-radius: 5px;
+  background-color: #111;
+  color: #00ff00;
+  font-family: 'Source Code Pro', monospace;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+  border-color: #00cc00;
+  outline: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #00ff00;
+}
+
+/* Checkboxes and Radio Buttons */
+input[type="checkbox"], input[type="radio"] {
+  margin-right: 10px;
+}
+
+input[type="checkbox"] + label, input[type="radio"] + label {
+  display: inline-block;
+  font-size: 1rem;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table, th, td {
+  border: 2px solid #00ff00;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #111;
+}
+
+/* Lists */
+ul, ol {
+  margin: 20px 0;
+  padding-left: 40px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  background-color: #222;
+  color: #00ff00;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+}
+
+/* Animations */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink 1s step-start infinite;
+}
