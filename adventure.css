@@ -1,0 +1,70 @@
+/* Adventure/Explorer Theme */
+body {
+    font-family: 'Cinzel', serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ffe29f, #ffa751);
+    color: #2f241d;
+    line-height: 1.8;
+}
+
+header {
+    background: linear-gradient(to right, #c97d60, #8c4a3a);
+    color: #fff7e6;
+    text-align: center;
+    padding: 25px 0;
+    border-bottom: 4px solid #8c4a3a;
+    font-size: 2rem;
+    text-shadow: 2px 2px 8px #8c4a3a;
+}
+
+h1, h2 {
+    margin: 15px 0;
+    color: #2f241d;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 5px #8c4a3a;
+    text-transform: uppercase;
+}
+
+button {
+    background: linear-gradient(to right, #c97d60, #8c4a3a);
+    color: #fff7e6;
+    border: none;
+    padding: 14px 28px;
+    margin: 20px 0;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to left, #c97d60, #8c4a3a);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+footer {
+    padding: 20px;
+    background: linear-gradient(to right, #8c4a3a, #5a2b1f);
+    color: #fff7e6;
+    text-align: center;
+    border-top: 4px solid #8c4a3a;
+    font-size: 1rem;
+    text-shadow: 1px 1px 5px #5a2b1f;
+}
+
+a {
+    color: #8c4a3a;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid #8c4a3a;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+a:hover {
+    color: #c97d60;
+    border-bottom-color: #c97d60;
+}
