@@ -3,30 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Theme Showcase App</title>
+    <title>CSS Theme Showcase</title>
     <link id="theme-stylesheet" rel="stylesheet" href="default.css"> <!-- Default Theme -->
     <style>
-        /* Centered text styles for general layout */
-        body, header, main, footer {
+        /* Center and style the title section */
+        .title-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        .title-container h1, .title-container h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+        }
+        nav {
+            background: #222;
+            padding: 10px;
             text-align: center;
         }
-
-        header {
-            margin-bottom: 40px;
-        }
-
-        h1 {
-            font-size: 3rem;
+        nav ul {
+            list-style: none;
+            padding: 0;
             margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
-
-        p {
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
             font-size: 1.2rem;
-            margin-top: 10px;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+        }
+        .buttons, .form-elements {
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
+    <!-- Titles in a Horizontal Row -->
+    <div class="title-container">
+        <h1>CSS Theme Showcase</h1>
+        <h2>Dynamic Style Switching</h2>
+        <h2>Interactive Elements</h2>
+    </div>
+
     <!-- Navigation Bar -->
     <nav>
         <ul>
@@ -37,9 +67,9 @@
         </ul>
     </nav>
 
-    <header>
-        <h1>CSS Theme Showcase</h1>
-        <p>Choose a theme from the dropdown below to switch styles.</p>
+    <!-- Theme Selector -->
+    <div class="container">
+        <h2>Select a Theme</h2>
         <select id="theme-selector">
             <option value="default.css">Default Theme</option>
             <option value="dark.css">Dark Theme</option>
@@ -56,36 +86,35 @@
             <option value="mystic-forest.css">Mystical Forest Theme</option>
             <option value="steampunk.css">Steampunk Industrial Theme</option>
         </select>
-    </header>
+    </div>
 
-    <main>
-        <!-- Hero Section -->
-        <section>
-            <h2>Welcome to the CSS Theme Showcase</h2>
-            <p>This webpage dynamically switches between different stylesheets to display a portfolio of CSS work.</p>
+    <!-- Interactive Elements -->
+    <div class="container">
+        <!-- Buttons Section -->
+        <div class="buttons">
+            <h2>Styled Buttons</h2>
             <button class="button">Primary Button</button>
             <button class="btn">Secondary Button</button>
-        </section>
+        </div>
 
         <!-- Form Elements -->
-        <section>
-            <h2>Styled Form Elements</h2>
+        <div class="form-elements">
+            <h2>Styled Form Inputs</h2>
             <input type="text" placeholder="Enter text here...">
             <input type="email" placeholder="Enter your email...">
-            <div class="checkbox-container">
-                <input type="checkbox" id="themeCheckbox">
-                <label for="themeCheckbox">Enable Dark Mode</label>
-            </div>
-        </section>
-
-        
-
-        <!-- Popup Modal -->
-        <div class="modal" id="themeModal">
-            <p>Welcome to the Theme Showcase!</p>
-            <button onclick="closeModal()">Close</button>
+            <br><br>
+            <label>
+                <input type="checkbox">
+                Enable Dark Mode
+            </label>
         </div>
-    </main>
+    </div>
+
+    <!-- Popup Modal -->
+    <div class="modal" id="themeModal">
+        <p>Welcome to the Theme Showcase!</p>
+        <button onclick="closeModal()">Close</button>
+    </div>
 
     <footer>
         <p>&copy; 2025 CSS Theme Switcher</p>
