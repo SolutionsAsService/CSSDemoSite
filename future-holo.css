@@ -1,4 +1,6 @@
 /* Futuristic Holographic Effect Theme */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(45deg, #f3a1e6, #5b77d9, #44b3e0);
@@ -10,6 +12,45 @@ body {
   text-align: center;
 }
 
+/* Smooth Gradient Background Animation */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* HEADER & NAVIGATION */
+header {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+nav a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* HEADINGS */
 h1 {
   font-size: 4rem;
   text-transform: uppercase;
@@ -18,24 +59,14 @@ h1 {
   text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7), 0px 0px 20px rgba(255, 255, 255, 0.5);
 }
 
-p {
-  font-size: 1.5rem;
-  margin-top: 20px;
+h2 {
+  font-size: 2rem;
+  margin-top: 10px;
+  text-transform: uppercase;
+  color: #ddd;
 }
 
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Shared Styles for Buttons */
+/* BUTTONS */
 .button, .btn {
   display: inline-block;
   padding: 15px 30px;
@@ -65,7 +96,7 @@ p {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 25px rgba(255, 255, 255, 0.2);
 }
 
-/* Keyframes for Pulsating Effect */
+/* Pulsating Glow Effect */
 @keyframes pulseAnimation {
   0%, 100% {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.2);
@@ -75,7 +106,7 @@ p {
   }
 }
 
-/* Futuristic Dropdown Menu */
+/* DROPDOWN MENU */
 select {
   appearance: none;
   -webkit-appearance: none;
@@ -103,16 +134,51 @@ select:focus {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
-/* Dropdown Arrow Styling */
-select::-ms-expand {
-  display: none;
+/* INPUT FIELDS */
+input[type="text"], input[type="email"] {
+  width: 80%;
+  max-width: 400px;
+  padding: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  outline: none;
+  transition: 0.3s ease;
 }
 
-select::after {
-  content: "▼";
+input[type="text"]:focus, input[type="email"]:focus {
+  border-color: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* MODAL POPUP */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  text-align: center;
+  z-index: 1000;
+}
+
+.modal.active {
+  display: block;
+}
+
+/* FOOTER */
+footer {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  margin-top: 30px;
   font-size: 1rem;
-  color: #fff;
-  position: absolute;
-  right: 10px;
-  pointer-events: none;
+  color: rgba(255, 255, 255, 0.8);
 }
