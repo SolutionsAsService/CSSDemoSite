@@ -1,0 +1,133 @@
+/* Steampunk Industrial Revolution Theme */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Indie+Flower&display=swap');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.7), rgba(33, 33, 33, 1));
+  font-family: 'Roboto Slab', serif;
+  color: #f1f1f1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 4rem;
+  color: #ffb74d;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  text-shadow: 0px 4px 6px rgba(255, 183, 77, 0.5), 0px 0px 20px rgba(255, 183, 77, 0.3);
+}
+
+h2 {
+  font-family: 'Indie Flower', cursive;
+  font-size: 2rem;
+  color: #d4e157;
+  margin-bottom: 50px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+/* Industrial Gear Background */
+.gear-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://source.unsplash.com/1600x900/?gears,steampunk') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  animation: rotateGears 20s linear infinite;
+}
+
+@keyframes rotateGears {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Steampunk Card Layout */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card {
+  background-color: #3e2723;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+  border: 2px solid #ffb74d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border-bottom: 2px solid #ffb74d;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: #ffb74d;
+  margin-top: 20px;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #f1f1f1;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* Glow Effect for Hover */
+.card:hover::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 183, 77, 0.3);
+  border-radius: 15px;
+  animation: glowing 1s ease-in-out infinite alternate;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 30px rgba(255, 183, 77, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 60px rgba(255, 183, 77, 0.8);
+  }
+}
