@@ -1,1 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lora', serif;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(34, 34, 34, 1)), 
+              url('https://source.unsplash.com/1600x900/?enchanted-forest,mist') 
+              no-repeat center center fixed;
+  background-size: cover;
+  color: #e4e1d7;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: hidden;
+}
+
+/* Navigation Bar */
+nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #f1e5d6;
+  font-size: 1.2rem;
+  font-family: 'Playfair Display', serif;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #88cc88;
+}
+
+/* Headings */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  color: #f1e5d6;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: transform 0.3s ease;
+}
+
+h1:hover {
+  transform: scale(1.05);
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #c1c1b3;
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+/* Form Elements */
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #88cc88;
+  background: rgba(0, 0, 0, 0.6);
+  color: #e4e1d7;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+  border-color: #66aa66;
+  outline: none;
+}
+
+/* Checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #88cc88;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"]:checked {
+  background: #88cc88;
+}
+
+.checkbox-container label {
+  margin-left: 10px;
+  color: #e4e1d7;
+  font-size: 1rem;
+}
+
+/* Popup Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.9);
+  color: #e4e1d7;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  z-index: 1000;
+}
+
+.modal.active {
+  display: block;
+}
+
+.modal button {
+  margin-top: 15px;
+  background: #88cc88;
+  color: #1a1a1a;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background: #66aa66;
+}
+
+/* Particle Glow Effect */
+@keyframes fireflies {
+  0% { opacity: 0; transform: translateY(0px) scale(0.8); }
+  50% { opacity: 1; transform: translateY(-20px) scale(1); }
+  100% { opacity: 0; transform: translateY(-40px) scale(1.2); }
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #88cc88;
+  border-radius: 50%;
+  opacity: 0;
+  animation: fireflies 3s infinite ease-in-out;
+}
+
+.particle:nth-child(2) { animation-delay: 0.5s; }
+.particle:nth-child(3) { animation-delay: 1s; }
+.particle:nth-child(4) { animation-delay: 1.5s; }
+.particle:nth-child(5) { animation-delay: 2s; }
+
+.particle:nth-child(6) { animation-delay: 2.5s; }
+.particle:nth-child(7) { animation-delay: 3s; }
+.particle:nth-child(8) { animation-delay: 3.5s; }
+.particle:nth-child(9) { animation-delay: 4s; }
+
+.particle:nth-child(10) { animation-delay: 4.5s; }
 
