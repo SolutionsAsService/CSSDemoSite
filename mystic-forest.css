@@ -1,5 +1,5 @@
-/* Mystical Forest Dreamscape Theme */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Serif+Pro&display=swap');
+/* Elegant Mystic Forest Theme */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
 
 /* Global Styles */
 * {
@@ -9,142 +9,134 @@
 }
 
 body {
-  background: url('https://source.unsplash.com/1600x900/?forest,mystic') no-repeat center center fixed;
+  font-family: 'Lora', serif;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(34, 34, 34, 1)), url('https://source.unsplash.com/1600x900/?forest,mist') no-repeat center center fixed;
   background-size: cover;
-  font-family: 'Source Serif Pro', serif;
-  color: #e4f1e1;
+  color: #e4e1d7;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 40px;
   overflow: hidden;
 }
 
-/* Heading Styles */
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 4rem;
-  color: #fff;
+  color: #f1e5d6;
   text-align: center;
   margin-bottom: 20px;
-  text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: fadeIn 2s ease-in-out forwards;
+  letter-spacing: 3px;
+  transition: transform 0.3s ease;
+}
+
+h1:hover {
+  transform: scale(1.05);
 }
 
 h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  color: #b3b8b0;
-  margin-bottom: 40px;
+  font-size: 1.8rem;
+  color: #c1c1b3;
   text-align: center;
   font-style: italic;
-  letter-spacing: 2px;
+  margin-bottom: 30px;
 }
 
-/* Parallax Scrolling Effect */
 .container {
   position: relative;
   width: 100%;
+  max-width: 1200px;
   height: 80vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  animation: parallax 10s infinite linear;
+  display: grid;
+  place-items: center;
 }
 
-@keyframes parallax {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(20%);
-  }
-}
-
-/* Dreamy Card Layout */
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 40px;
   margin-top: 40px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
 }
 
 .card {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.8);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.7);
+  transform: translateY(-10px);
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.9);
 }
 
 .card img {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
   border-radius: 10px;
 }
 
 .card h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  color: #fff;
-  margin-top: 15px;
+  font-size: 2rem;
+  color: #f1e5d6;
+  margin-top: 20px;
   text-align: center;
-  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
 }
 
 .card p {
   font-size: 1rem;
-  color: #d1e1c7;
-  margin-top: 10px;
+  color: #c1c1b3;
+  margin-top: 15px;
   text-align: center;
   line-height: 1.6;
 }
 
-/* Light Effect - Subtle Glowing Hover */
-.card:hover::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 15px;
-  animation: glowEffect 1s ease-in-out infinite alternate;
-  transform: translate(-50%, -50%);
-}
-
-@keyframes glowEffect {
+/* Animation Effects */
+@keyframes glowIn {
   0% {
-    box-shadow: 0 0 20px #a1d1c6, 0 0 40px #a1d1c6;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
   }
   100% {
-    box-shadow: 0 0 40px #fff, 0 0 80px #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
   }
 }
 
-/* Subtle Fade In Animation */
-@keyframes fadeIn {
+.card:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  animation: glowIn 1.5s ease-out forwards;
+}
+
+/* Soft Scroll Animation */
+@keyframes scrollFadeIn {
   0% {
     opacity: 0;
+    transform: translateY(30px);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.container, .card-container {
+  animation: scrollFadeIn 1s ease-out forwards;
 }
