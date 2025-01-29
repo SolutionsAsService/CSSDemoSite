@@ -1,0 +1,202 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #e0f7fa, #80deea);
+    color: #333;
+    overflow-x: hidden;
+}
+
+header {
+    background: #0288d1;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background: #01579b;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background: #0277bd;
+}
+
+main {
+    padding: 20px;
+    background: white;
+    margin: 20px auto;
+    max-width: 1200px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+}
+
+footer {
+    background: #0288d1;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Snowflake Animation */
+@keyframes snowflakes {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.snowflake {
+    color: white;
+    font-size: 1.5em;
+    position: fixed;
+    top: -10%;
+    z-index: 9999;
+    user-select: none;
+    pointer-events: none;
+    animation: snowflakes 10s linear infinite;
+}
+
+.snowflake:nth-child(odd) {
+    animation-duration: 8s;
+}
+
+.snowflake:nth-child(even) {
+    animation-duration: 12s;
+}
+
+/* Snowflake Generation */
+@keyframes snowflake {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+.snowflake {
+    position: fixed;
+    top: -10%;
+    z-index: 9999;
+    user-select: none;
+    pointer-events: none;
+    animation: snowflake 10s linear infinite;
+}
+
+@keyframes snowflake-fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.snowflake {
+    display: block;
+    color: white;
+    font-size: 1.5em;
+    position: fixed;
+    top: -10%;
+    z-index: 9999;
+    user-select: none;
+    pointer-events: none;
+    animation: snowflake-fall 10s linear infinite;
+}
+
+.snowflake:nth-child(odd) {
+    left: 10%;
+    animation-duration: 8s;
+}
+
+.snowflake:nth-child(even) {
+    left: 20%;
+    animation-duration: 12s;
+}
+
+.snowflake:nth-child(3n) {
+    left: 30%;
+    animation-duration: 7s;
+}
+
+.snowflake:nth-child(4n) {
+    left: 40%;
+    animation-duration: 11s;
+}
+
+.snowflake:nth-child(5n) {
+    left: 50%;
+    animation-duration: 9s;
+}
+
+.snowflake:nth-child(6n) {
+    left: 60%;
+    animation-duration: 10s;
+}
+
+.snowflake:nth-child(7n) {
+    left: 70%;
+    animation-duration: 8s;
+}
+
+.snowflake:nth-child(8n) {
+    left: 80%;
+    animation-duration: 12s;
+}
+
+.snowflake:nth-child(9n) {
+    left: 90%;
+    animation-duration: 7s;
+}
+
+/* Additional Styling */
+.container {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #0288d1;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 1.1em;
+    color: #666;
+}
