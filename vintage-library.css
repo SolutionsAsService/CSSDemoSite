@@ -135,3 +135,64 @@ h2 {
 body {
   animation: subtleBackground 60s ease-in-out infinite alternate;
 }
+
+/* Dropdown Menu Styling */
+select {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  padding: 10px 15px;
+  color: #6b4f3c;
+  background-color: #fbf5e7;
+  border: 2px solid #bfa88b;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  appearance: none; /* Remove default browser styles */
+  cursor: pointer;
+}
+
+select:hover {
+  border-color: #f0c8a2;
+  box-shadow: 0 6px 12px rgba(255, 204, 102, 0.3);
+}
+
+select:focus {
+  border-color: #6b4f3c;
+  box-shadow: 0 6px 12px rgba(107, 79, 60, 0.3);
+}
+
+option {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  color: #3e3e3e;
+  background-color: #fdf6e3;
+}
+
+/* Vintage Button */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #6b4f3c;
+  border: 2px solid #bfa88b;
+  border-radius: 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #8a6e46;
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  background-color: #5b3f2d;
+  transform: translateY(0);
+}
+
