@@ -8,22 +8,88 @@ body {
     background-color: #2b2b2b;
     color: #eaeaea;
     line-height: 1.6;
+    animation: bodyGradient 20s ease infinite alternate;
 }
 
-header {
+/* Header & Title Styling */
+header, .title-container {
     background-color: #333;
-    color: #eaeaea;
-    text-align: center;
-    padding: 15px 0;
+    padding: 20px 0;
     border-bottom: 3px solid #444;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 h1, h2 {
-    margin: 10px 0;
     color: #eaeaea;
+    font-size: 1.8rem;
+    margin: 10px 0;
+    text-transform: uppercase;
 }
 
-/* Styled Button */
+/* Navigation Bar */
+nav {
+    background-color: #222;
+    padding: 10px 0;
+    border-bottom: 2px solid #444;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #eaeaea;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+nav ul li a:hover {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Styled Dropdown */
+select {
+    background-color: #444;
+    color: #eaeaea;
+    border: 2px solid #555;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select:hover {
+    background-color: #555;
+    border-color: #666;
+}
+
+select:focus {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
+
+/* Styled Buttons */
 button, .btn {
     background-color: #444;
     color: #eaeaea;
@@ -49,37 +115,51 @@ button:active, .btn:active {
     box-shadow: none;
 }
 
-/* Styled Dropdown */
-select {
+/* Form Elements */
+input[type="text"],
+input[type="email"] {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border: 2px solid #555;
     background-color: #444;
     color: #eaeaea;
-    border: 2px solid #555;
-    padding: 10px;
     font-size: 16px;
     border-radius: 4px;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    transition: all 0.3s ease;
+    margin-top: 10px;
     outline: none;
+    transition: all 0.3s ease;
 }
 
-select:hover {
-    background-color: #555;
+input[type="text"]:focus,
+input[type="email"]:focus {
     border-color: #666;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
-select:focus {
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+label {
+    font-size: 1rem;
+    margin-top: 10px;
+    display: block;
 }
 
-/* Dropdown Arrow */
-select::after {
-    content: "▼";
-    position: absolute;
-    right: 10px;
-    pointer-events: none;
+/* Popup Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    text-align: center;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: block;
 }
 
 /* Footer */
@@ -92,15 +172,7 @@ footer {
     margin-top: 30px;
 }
 
-/* Container Styling */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Smooth Transition for Body Background */
+/* Smooth Background Animation */
 @keyframes bodyGradient {
     0% {
         background-color: #2b2b2b;
@@ -111,8 +183,4 @@ footer {
     100% {
         background-color: #2b2b2b;
     }
-}
-
-body {
-    animation: bodyGradient 20s ease infinite alternate;
 }
