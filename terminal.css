@@ -12,12 +12,9 @@ body {
   background-color: #000;
   color: #00ff00;
   font-family: 'Source Code Pro', monospace;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
 }
 
 /* Header and Navigation */
@@ -148,6 +145,17 @@ li {
   margin-bottom: 10px;
 }
 
+/* Footer */
+footer {
+  width: 100%;
+  background-color: #222;
+  color: #00ff00;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+}
+
 /* Utility Classes */
 .container {
   max-width: 1200px;
@@ -171,15 +179,40 @@ li {
   padding: 10px;
 }
 
-/* Footer */
-footer {
-  width: 100%;
-  background-color: #222;
-  color: #00ff00;
-  text-align: center;
-  padding: 10px 0;
+/* Popup Styles */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #111;
+  border: 2px solid #00ff00;
+  padding: 20px;
+  z-index: 1000;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+}
+
+.popup.active {
+  display: block;
+}
+
+.popup-header {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.popup-close {
   position: absolute;
-  bottom: 0;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #00ff00;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 /* Animations */
