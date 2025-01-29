@@ -1,5 +1,6 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #121212;
@@ -7,26 +8,135 @@ body {
     line-height: 1.6;
 }
 
+a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0288d1;
+}
+
+/* Header and Navigation */
 header {
     background-color: #1e1e1e;
     color: #00bcd4;
     text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #282828;
     padding: 10px 0;
 }
 
-h1, h2 {
-    margin: 10px 0;
+nav a {
+    margin: 0 15px;
+    padding: 10px 15px;
+    color: #e0e0e0;
+    border-radius: 5px;
 }
 
+nav a:hover {
+    background-color: #383838;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #00bcd4;
+}
+
+h2 {
+    font-size: 2em;
+    color: #0288d1;
+}
+
+/* Buttons */
 button {
     background-color: #00bcd4;
     color: white;
     border: none;
     padding: 10px 20px;
     margin: 10px 0;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #0288d1;
+}
+
+/* Forms */
+input[type="text"], input[type="email"], input[type="password"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+    border-color: #00bcd4;
+    outline: none;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #e0e0e0;
+}
+
+/* Footer */
+footer {
+    background-color: #1e1e1e;
+    color: #00bcd4;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.p-10 {
+    padding: 10px;
 }
