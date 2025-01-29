@@ -5,6 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Theme Showcase App</title>
     <link id="theme-stylesheet" rel="stylesheet" href="default.css"> <!-- Default Theme -->
+    <style>
+        /* Centering Styles and Enhancements */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f4f8;
+            color: #1a202c;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            padding: 20px;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+        }
+
+        select {
+            margin-top: 15px;
+            background-color: white;
+            color: #1a202c;
+            border: 2px solid #6a11cb;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            appearance: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        select:hover {
+            border-color: #2575fc;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        main {
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #6a11cb;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2575fc;
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            color: white;
+            background: #1a202c;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -25,8 +126,6 @@
             <option value="vintage-library.css">Vintage Library Theme</option>
             <option value="mystic-forest.css">Mystical Forest Theme</option>
             <option value="steampunk.css">Steampunk Industrial Theme</option>
-            
-
         </select>
     </header>
     <main>
@@ -35,12 +134,18 @@
             <p>This webpage dynamically switches between different stylesheets to display a portfolio of CSS work.</p>
             <button class="button">Example Button</button>
             <button class="btn">Example Button</button>
-
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 CSS Theme Switcher</p>
+        <p>&copy; 2025 CSS Theme Showcase. All Rights Reserved.</p>
     </footer>
-    <script src="theme-switcher.js"></script>
+    <script>
+        const themeSelector = document.getElementById('theme-selector');
+        const themeStylesheet = document.getElementById('theme-stylesheet');
+
+        themeSelector.addEventListener('change', function() {
+            themeStylesheet.href = this.value;
+        });
+    </script>
 </body>
 </html>
