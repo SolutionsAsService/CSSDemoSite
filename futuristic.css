@@ -1,0 +1,71 @@
+/* Futuristic Monotone Theme */
+body {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #111, #000 80%);
+    color: #d4d4d4;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    line-height: 1.8;
+}
+
+header {
+    background: linear-gradient(90deg, #000, #222, #000);
+    color: #00ffff;
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 4px solid #00ffff;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+h1, h2 {
+    margin: 15px 0;
+    color: #00ffff;
+    font-size: 2rem;
+    text-shadow: 0 0 15px #00ffff;
+}
+
+button {
+    background: linear-gradient(90deg, #00ffff, #0077ff);
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px #00ffff;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #0077ff, #00ffff);
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #0077ff;
+}
+
+footer {
+    padding: 20px;
+    background: linear-gradient(90deg, #000, #222, #000);
+    color: #00ffff;
+    text-align: center;
+    border-top: 4px solid #00ffff;
+    font-size: 0.9rem;
+    text-shadow: 0 0 10px #00ffff;
+    box-shadow: 0 -2px 15px #00ffff;
+}
+
+a {
+    color: #00ffff;
+    text-decoration: none;
+    border-bottom: 1px solid #00ffff;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0077ff;
+    border-bottom-color: #0077ff;
+}
