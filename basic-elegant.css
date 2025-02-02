@@ -22,6 +22,7 @@ body {
   overflow: hidden;
 }
 
+/* Headings */
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 4rem;
@@ -47,6 +48,7 @@ h2 {
   margin-bottom: 30px;
 }
 
+/* Container */
 .container {
   position: relative;
   width: 100%;
@@ -56,6 +58,7 @@ h2 {
   place-items: center;
 }
 
+/* Card Container */
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -65,6 +68,7 @@ h2 {
   max-width: 1100px;
 }
 
+/* Card Styles */
 .card {
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 12px;
@@ -101,6 +105,93 @@ h2 {
   margin-top: 15px;
   text-align: center;
   line-height: 1.6;
+}
+
+/* Form Styles */
+form {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.8);
+}
+
+form .form-group {
+  margin-bottom: 20px;
+}
+
+form label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #f1e5d6;
+  margin-bottom: 5px;
+  display: block;
+}
+
+form input[type="text"], form input[type="email"], form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c1c1b3;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e4e1d7;
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus, form input[type="email"]:focus, form textarea:focus {
+  border-color: #f1e5d6;
+  outline: none;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form input[type="checkbox"], form input[type="radio"] {
+  margin-right: 10px;
+}
+
+form .form-group.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+form .form-group.checkbox-group label {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+/* Button Styles */
+button {
+  background: rgba(241, 229, 214, 0.8);
+  color: #222;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background: rgba(241, 229, 214, 1);
+  transform: scale(1.05);
+}
+
+/* Footer Styles */
+footer {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  text-align: center;
+  color: #e4e1d7;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 /* Animation Effects */
