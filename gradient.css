@@ -1,11 +1,11 @@
-/* Purple Gradient Theme */
+/* Light Purple Gradient Theme */
 @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap');
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom right, #6a11cb, #2575fc);
+    background: linear-gradient(to bottom right, #e0c3fc, #8ec5fc);
     color: #1a202c;
     line-height: 1.8;
 }
@@ -19,12 +19,12 @@ body {
 
 /* Header */
 header {
-    background: linear-gradient(45deg, #9f7aea, #6b46c1);
+    background: linear-gradient(45deg, #d4a5ff, #b19cd9);
     color: white;
     text-align: center;
     padding: 20px 0;
     border-radius: 0 0 10px 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     font-size: 2rem;
 }
 
@@ -68,7 +68,7 @@ nav ul li a:hover {
     position: absolute;
     background-color: #fff;
     min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
     border-radius: 5px;
 }
@@ -89,7 +89,7 @@ nav ul li a:hover {
 }
 
 .dropdown:hover .dropbtn {
-    background-color: #7e57c2;
+    background-color: #a37aff;
 }
 
 /* Typography */
@@ -106,7 +106,7 @@ p {
 
 /* Dynamic Buttons */
 button, .btn {
-    background-color: #9f7aea;
+    background-color: #d4a5ff;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -114,26 +114,26 @@ button, .btn {
     border-radius: 50px;
     font-size: 16px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
 button:hover, .btn:hover {
-    background-color: #6b46c1;
+    background-color: #b19cd9;
     transform: scale(1.05);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 button:active, .btn:active {
     transform: scale(0.98);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Styled Dropdown */
 select {
     background-color: white;
     color: #1a202c;
-    border: 2px solid #9f7aea;
+    border: 2px solid #d4a5ff;
     padding: 10px;
     font-size: 16px;
     border-radius: 8px;
@@ -147,13 +147,13 @@ select {
 }
 
 select:hover {
-    border-color: #6b46c1;
+    border-color: #b19cd9;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
 }
 
 select:focus {
-    border-color: #6b46c1;
-    box-shadow: 0 0 5px rgba(107, 70, 193, 0.5);
+    border-color: #b19cd9;
+    box-shadow: 0 0 5px rgba(177, 156, 217, 0.5);
 }
 
 /* Dropdown Arrow */
@@ -165,7 +165,7 @@ select::-ms-expand {
 input[type="text"], input[type="email"], input[type="tel"], input[type="password"], textarea {
     width: 100%;
     padding: 12px;
-    border: 2px solid #9f7aea;
+    border: 2px solid #d4a5ff;
     border-radius: 8px;
     font-size: 16px;
     box-sizing: border-box;
@@ -174,8 +174,8 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
 }
 
 input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="password"]:focus, textarea:focus {
-    border-color: #6b46c1;
-    box-shadow: 0 0 5px rgba(107, 70, 193, 0.5);
+    border-color: #b19cd9;
+    box-shadow: 0 0 5px rgba(177, 156, 217, 0.5);
     outline: none;
 }
 
@@ -185,7 +185,7 @@ textarea {
 
 /* Checkboxes and Radio Buttons */
 input[type="checkbox"], input[type="radio"] {
-    accent-color: #9f7aea;
+    accent-color: #d4a5ff;
     margin-right: 8px;
 }
 
@@ -229,7 +229,7 @@ section h2 {
     margin-bottom: 20px;
     padding: 20px;
     background: #f0f4f8;
-    border: 1px solid #9f7aea;
+    border: 1px solid #d4a5ff;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
