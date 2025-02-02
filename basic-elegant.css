@@ -129,7 +129,7 @@ form label {
   display: block;
 }
 
-form input[type="text"], form input[type="email"], form textarea {
+form input[type="text"], form input[type="email"], form textarea, form select {
   width: 100%;
   padding: 10px;
   border: 1px solid #c1c1b3;
@@ -141,7 +141,7 @@ form input[type="text"], form input[type="email"], form textarea {
   transition: border-color 0.3s ease;
 }
 
-form input[type="text"]:focus, form input[type="email"]:focus, form textarea:focus {
+form input[type="text"]:focus, form input[type="email"]:focus, form textarea:focus, form select:focus {
   border-color: #f1e5d6;
   outline: none;
 }
@@ -162,6 +162,16 @@ form .form-group.checkbox-group {
 form .form-group.checkbox-group label {
   font-size: 1rem;
   margin-bottom: 0;
+}
+
+/* Dropdown Styles */
+form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Button Styles */
