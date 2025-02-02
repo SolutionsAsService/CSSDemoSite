@@ -6,12 +6,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Source Code Pro', monospace; /* Applying terminal-like font globally */
 }
 
 body {
   background-color: #000;
   color: #00ff00;
-  font-family: 'Source Code Pro', monospace;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -91,7 +91,6 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
   border-radius: 5px;
   background-color: #111;
   color: #00ff00;
-  font-family: 'Source Code Pro', monospace;
 }
 
 input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
@@ -124,7 +123,6 @@ select {
   border-radius: 5px;
   background-color: #111;
   color: #00ff00;
-  font-family: 'Source Code Pro', monospace;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
