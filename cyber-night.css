@@ -129,3 +129,66 @@ a:hover {
   color: #39ff14;
   text-shadow: 0px 0px 10px #39ff14, 0px 0px 15px #39ff14;
 }
+
+/* Button Styles */
+button {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: #0a0a0a;
+  background-color: #39ff14;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: #ff4081;
+  color: #0a0a0a;
+}
+
+/* Dropdown Styles */
+select {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: #0a0a0a;
+  background-color: #39ff14;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+select:hover {
+  background-color: #ff4081;
+  color: #0a0a0a;
+}
+
+/* Checkbox Styles */
+input[type="checkbox"] {
+  accent-color: #39ff14;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Text Field Styles */
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: #0a0a0a;
+  background-color: #39ff14;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, textarea:hover {
+  background-color: #ff4081;
+  color: #0a0a0a;
+}
