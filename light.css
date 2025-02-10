@@ -1,32 +1,187 @@
+/* Import the Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* ========================================================================
+   Reset & Base Styles
+   ======================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    color: #333;
-    line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  background-color: #fff;
+  color: #000;
+  line-height: 1.6;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
+/* ========================================================================
+   Container
+   ======================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ========================================================================
+   Header & Navigation
+   ======================================================================== */
 header {
-    background-color: #f1f1f1;
-    color: #333;
-    text-align: center;
-    padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
 }
 
-h1, h2 {
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header h1 {
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu li {
+  margin-left: 20px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+  color: #555;
+  transform: translateY(-2px);
+}
+
+/* ========================================================================
+   Main Content & Sections
+   ======================================================================== */
+main {
+  margin-top: 120px; /* Provide space for the fixed header */
+  padding: 40px 20px;
+  transition: transform 0.3s ease;
+}
+
+.section {
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+/* ========================================================================
+   Hero Section
+   ======================================================================== */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* ========================================================================
+   Buttons
+   ======================================================================== */
+.button {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+/* ========================================================================
+   Footer
+   ======================================================================== */
+footer {
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  padding: 20px 0;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 40px;
+}
+
+/* ========================================================================
+   Responsive Adjustments
+   ======================================================================== */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-menu {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  .nav-menu li {
     margin: 10px 0;
-}
-
-button {
-    background-color: #ddd;
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px 0;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #ccc;
+  }
 }
