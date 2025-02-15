@@ -64,86 +64,67 @@ body {
 }
 
 /* ------------------------------------------------------
-   Buttons (Primary & Secondary)
+   Buttons (Modern Black & White Style)
 --------------------------------------------------------- */
-.button {
+.btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
   text-decoration: none;
-  color: #fff;
-  background-color: var(--accent-color);
-  border: none;
+  background-color: #000;  /* Static Black */
+  color: #fff;  /* Static White Text */
+  border: 2px solid #000;
   border-radius: 6px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
 
-.button:hover {
-  background-color: #005bb5;
+.btn:hover {
+  background-color: #fff;  /* White Background */
+  color: #000;  /* Black Text */
+  border: 2px solid #000;  /* Black Outline */
   transform: translateY(-2px);
 }
 
-.button.secondary {
-  background-color: #555;
+/* Secondary Button (Muted Style) */
+.btn.secondary {
+  background-color: #333;
+  border-color: #333;
 }
 
-.button.secondary:hover {
-  background-color: #444;
+.btn.secondary:hover {
+  background-color: #fff;
+  color: #333;
 }
 
 /* ------------------------------------------------------
-   Forms & Input Fields
+   Form Inputs & Text Fields (Muted Professional Look)
 --------------------------------------------------------- */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
 input,
 textarea,
 select {
   width: 100%;
   padding: 0.75rem;
   font-size: 1rem;
-  border: 1px solid var(--input-border);
-  background-color: var(--input-bg);
+  background-color: #f6f6f6;  /* Softer Muted Background */
+  border: 1px solid #ccc;  /* Subtle Border */
+  color: #222;  /* Darker, Professional Text */
   border-radius: 6px;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: var(--input-focus);
+  border-color: #000;  /* Black Focus Border */
+  background-color: #fff;  /* Slightly Brighter Background */
   outline: none;
 }
 
-textarea {
-  resize: vertical;
-}
-
-/* Error Styling */
-input.error,
-textarea.error {
-  border-color: var(--error-color);
-}
-
-.error-message {
-  color: var(--error-color);
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
-}
-
 /* ------------------------------------------------------
-   Dropdown (Select Menu)
+   Dropdown (Muted, Professional)
 --------------------------------------------------------- */
 .select-wrapper {
   position: relative;
@@ -155,6 +136,9 @@ select {
   appearance: none;
   padding-right: 2rem;
   cursor: pointer;
+  background-color: #f6f6f6;  /* Muted */
+  border: 1px solid #bbb;
+  color: #222;
 }
 
 .select-wrapper::after {
@@ -165,7 +149,7 @@ select {
   transform: translateY(-50%);
   font-size: 0.875rem;
   pointer-events: none;
-  color: var(--primary-color);
+  color: #444;
 }
 
 /* ------------------------------------------------------
@@ -273,19 +257,26 @@ footer {
 }
 
 /* ------------------------------------------------------
-   Responsive Design
+   Form Group Styling
+--------------------------------------------------------- */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #444;  /* Subtle but readable */
+}
+
+/* ------------------------------------------------------
+   Responsive Design Adjustments
 --------------------------------------------------------- */
 @media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-  }
-  nav ul li {
-    margin: 0.5rem 0;
-  }
-  header h1 {
-    font-size: 2rem;
-  }
-  .modal {
-    width: 90%;
+  .btn {
+    width: 100%;
+    text-align: center;
   }
 }
+
