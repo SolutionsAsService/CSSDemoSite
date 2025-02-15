@@ -1,5 +1,5 @@
 /* ------------------------------------------------------
-   Import Google Fonts (including thin weight for Poppins)
+   Import Google Fonts (Including Thin Weight for Poppins)
 --------------------------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap');
 
@@ -19,7 +19,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Apply a subtle horizontal swipe transition on page load */
 body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
@@ -30,6 +29,7 @@ body {
   animation: slideIn 0.7s ease-out forwards;
 }
 
+/* Page Load Animation */
 @keyframes slideIn {
   0% {
     opacity: 0;
@@ -50,55 +50,122 @@ body {
 :root {
   --primary-bg: #ffffff;
   --primary-color: #333;
-  --secondary-bg: #1c1e21;  /* Dark background for header/footer */
-  --accent-color: #0070f3;  /* Vercel blue accent */
+  --secondary-bg: #1c1e21;
+  --accent-color: #0070f3;
   --nav-bg: #111;
   --nav-hover: #0070f3;
   --border-color: #eaeaea;
   --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   --nav-spacing: 1.5rem;
+  --input-bg: #f0f4f8;
+  --input-border: #d1d5db;
+  --input-focus: #0070f3;
+  --error-color: #ff4d4d;
 }
 
 /* ------------------------------------------------------
-   Typography - Consistent thin, modern headings using Poppins
+   Buttons (Primary & Secondary)
 --------------------------------------------------------- */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-  color: var(--primary-color);
-  font-weight: 300; /* Thin modern style for headings */
-}
-
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-p {
-  margin-bottom: 1rem;
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #005bb5;
+  transform: translateY(-2px);
+}
+
+.button.secondary {
+  background-color: #555;
+}
+
+.button.secondary:hover {
+  background-color: #444;
 }
 
 /* ------------------------------------------------------
-   Header
+   Forms & Input Fields
 --------------------------------------------------------- */
-header {
-  background-color: var(--secondary-bg);
-  color: #fff;
-  padding: 2rem 1rem;
-  text-align: center;
-  margin-bottom: 2rem;
+.form-group {
+  margin-bottom: 1.5rem;
 }
 
-header h1 {
-  font-size: 2.5rem;
-  color: #fff; /* Ensure the title is visible on a dark background */
-  font-weight: 300; /* Thin header text for a clean, professional look */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds subtle contrast */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--input-focus);
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Error Styling */
+input.error,
+textarea.error {
+  border-color: var(--error-color);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* ------------------------------------------------------
+   Dropdown (Select Menu)
+--------------------------------------------------------- */
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+select {
+  appearance: none;
+  padding-right: 2rem;
+  cursor: pointer;
+}
+
+.select-wrapper::after {
+  content: "▼";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  pointer-events: none;
+  color: var(--primary-color);
 }
 
 /* ------------------------------------------------------
@@ -138,45 +205,59 @@ nav ul li a:hover {
 }
 
 /* ------------------------------------------------------
-   Main Content Sections
+   Modal Styles (Popup Windows)
 --------------------------------------------------------- */
-main section {
-  background-color: var(--primary-bg);
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
   padding: 2rem;
-  margin-bottom: 2rem;
   border-radius: 8px;
   box-shadow: var(--box-shadow);
+  z-index: 1000;
 }
 
-main section h2 {
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--border-color);
+.modal.active {
+  display: block;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.modal-close {
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 /* ------------------------------------------------------
-   Code Blocks and Preformatted Text
+   Alert Messages
 --------------------------------------------------------- */
-pre {
-  background-color: #2d2d2d;
-  color: #f8f8f2;
+.alert {
   padding: 1rem;
-  overflow-x: auto;
   border-radius: 5px;
-  margin: 1rem 0;
-  font-size: 0.9rem;
-}
-
-code {
-  font-family: 'Source Code Pro', monospace;
-}
-
-/* ------------------------------------------------------
-   Lists
---------------------------------------------------------- */
-ul {
-  margin-left: 1.5rem;
   margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.alert.success {
+  background-color: #d4edda;
+  color: #155724;
+  border-left: 5px solid #28a745;
+}
+
+.alert.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-left: 5px solid #dc3545;
 }
 
 /* ------------------------------------------------------
@@ -203,5 +284,8 @@ footer {
   }
   header h1 {
     font-size: 2rem;
+  }
+  .modal {
+    width: 90%;
   }
 }
