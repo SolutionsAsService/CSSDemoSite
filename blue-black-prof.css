@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* =========================
+   CSS Variables (Theme Map)
+   ========================= */
+:root {
+  /* Sands & Stones */
+  --sand-light:  #F5E9DC;
+  --sand-dark:   #EADBC8;
+  --stone-gray:  #777777;
+
+  /* Canyon Reds & Oranges */
+  --canyon-base:   #A64942;
+  --canyon-light:  #D96664;
+  --sunset-orange: #F28C38;
+
+  /* Sage & Pine Greens */
+  --sage-gray:   #8C8B7F;
+  --pine-dark:   #4A5A46;
+  --forest-green:#3F664A;
+
+  /* Sky & Water Blues */
+  --sky-light:   #EAF6FB;
+  --sky-mid:     #85C1E9;
+  --twilight:    #5B84B1;
+
+  /* Accents */
+  --goldenrod:   #DAA520;
+  --white:       #FFFFFF;
+  --black:       #000000;
+
+  /* Typography scale */
+  --type-base:   1rem;
+  --type-lg:     1.125rem;
+  --type-xl:     1.5rem;
+  --type-2xl:    2rem;
+
+  /* Spacing scale */
+  --space-xs:    0.25rem;
+  --space-sm:    0.5rem;
+  --space-md:    1rem;
+  --space-lg:    1.5rem;
+  --space-xl:    2rem;
+}
+
+/* =========================
+   Global & Reset
+   ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--type-base);
+  line-height: 1.6;
+  background-color: var(--sand-light);
+  color: var(--stone-gray);
+  transition: background-color .3s ease, color .3s ease;
+}
+
+/* Screen-reader only helper */
+.sr-only { 
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); border: 0;
+}
+
+/* =========================
+   Dark Mode Overrides
+   ========================= */
+.dark body {
+  background-color: #111;
+  color: #DDD;
+}
+.dark .card {
+  background-color: #1A1A1A;
+  color: #EEE;
+}
+
+/* =========================
+   Hero Section with Parallax
+   ========================= */
+.hero {
+  position: relative;
+  height: 90vh;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)),
+    url('/images/utah-hero.jpg') center/cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  padding: var(--space-lg);
+}
+.hero h1 {
+  font-size: var(--type-2xl);
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+.hero p {
+  font-size: var(--type-lg);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =========================
+   Navigation Bar
+   ========================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  background-color: rgba(250,245,240,0.9);
+  backdrop-blur: 10px;
+  z-index: 50;
+}
+.navbar .logo {
+  font-weight: 700;
+  font-size: var(--type-xl);
+  color: var(--canyon-base);
+}
+.navbar ul {
+  display: flex;
+  gap: var(--space-md);
+}
+.navbar a {
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--stone-gray);
+  transition: color .2s;
+}
+.navbar a:hover {
+  color: var(--canyon-base);
+}
+.dark .navbar {
+  background-color: rgba(20,20,20,0.8);
+}
+
+/* =========================
+   Buttons & CTAs
+   ========================= */
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  border-radius: .75rem;
+  padding: var(--space-sm) var(--space-md);
+  text-align: center;
+  transition: transform .2s;
+}
+.btn-primary {
+  background-color: var(--canyon-base);
+  color: var(--white);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background-color: var(--sunset-orange);
+}
+.btn-secondary {
+  background-color: var(--forest-green);
+  color: var(--white);
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  background-color: var(--pine-dark);
+}
+
+/* =========================
+   Cards & Content Blocks
+   ========================= */
+.card {
+  background-color: var(--white);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: var(--space-lg);
+  transition: box-shadow .3s;
+}
+.card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.card h3 {
+  font-size: var(--type-xl);
+  margin-bottom: var(--space-sm);
+  color: var(--canyon-base);
+}
+.card p {
+  margin-bottom: var(--space-md);
+}
+
+/* =========================
+   Layout Utilities
+   ========================= */
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* =========================
+   Footer
+   ========================= */
+.footer {
+  background-color: var(--canyon-base);
+  color: var(--white);
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+}
+.footer a {
+  color: var(--goldenrod);
+  text-decoration: underline;
+}
+
+/* =========================
+   Transitions & Animations
+   ========================= */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards ease-out;
+  animation-delay: 0.3s;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
