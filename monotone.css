@@ -211,23 +211,47 @@ pre, code {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.85); /* darker and more opaque backdrop */
+  backdrop-filter: blur(3px); /* optional: adds a soft blur */
   align-items: center;
   justify-content: center;
+  z-index: 999;
+  padding: var(--gap-lg);
 }
+
 .modal.active {
   display: flex;
 }
+
 .modal-content {
-  background-color: var(--bg-surface);
+  background-color: #1e1e1e; /* darker than var(--bg-surface) for emphasis */
   padding: var(--gap-lg);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.9); /* deeper shadow */
   color: var(--fg-primary);
   max-width: 500px;
   width: 100%;
-  text-align: center;
+  text-align: left;
+  position: relative;
+  border: 1px solid var(--border);
 }
+
+.modal-close {
+  position: absolute;
+  top: var(--gap-sm);
+  right: var(--gap-sm);
+  font-size: 1.5rem;
+  color: var(--fg-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--trans);
+}
+
+.modal-close:hover {
+  color: var(--fg-primary);
+}
+
 
 /* Footer */
 footer {
