@@ -1,210 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Theme Showcase</title>
-    <link id="theme-stylesheet" rel="stylesheet" href="default.css"> <!-- Default Theme -->
-    <style>
-        /* Remove preset colors to avoid interfering with CSS themes */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CSS Theme Showcase</title>
+  <link id="theme-stylesheet" rel="stylesheet" href="default.css" />
 
-        body {
-            font-family: sans-serif;
-            text-align: center;
-        }
-
-        /* Horizontal title layout */
-        .title-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 20px;
-            flex-wrap: wrap;
-        }
-
-        .title-container h1, .title-container h2 {
-            margin: 0;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-        }
-
-        /* Basic navigation (unstyled so themes apply) */
-        nav {
-            padding: 10px;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-
-        .container {
-            text-align: center;
-            padding: 30px;
-        }
-
-        .buttons, .form-elements {
-            margin-top: 30px;
-        }
-
-        /* Hide icons by default */
-        .snowflake, .leaf {
-            display: none;
-        }
-    </style>
+  <style>
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; line-height: 1.6; text-align: center; color: #333; }
+    .container { max-width: 1000px; margin: auto; padding: 2rem 1rem; }
+    h1,h2,h3,h4,h5,h6 { margin-bottom: 1rem; }
+    p { margin-bottom: 1rem; }
+    .section { padding: 3rem 0; border-bottom: 1px solid #eee; }
+    .grid { display: grid; gap: 1rem; }
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: repeat(3,1fr); }
+    .btn { padding: .5rem 1rem; border: none; cursor: pointer; margin: .25rem; }
+    .form-group { margin-bottom: 1rem; text-align: left; }
+    label { display: block; margin-bottom: .25rem; }
+    input, select, textarea { width: 100%; padding: .5rem; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+    th,td { border: 1px solid #ccc; padding: .5rem; }
+    pre, code { background: #f4f4f4; padding: .5rem; display: block; text-align: left; overflow-x: auto; }
+    blockquote { border-left: 4px solid #ccc; padding-left: 1rem; margin: 1rem 0; }
+    .badge { display: inline-block; padding: .25em .5em; border-radius: .25rem; font-size: .875rem; margin: .25rem; }
+    .alert { padding: 1rem; border-radius: .25rem; margin-bottom: 1rem; text-align: left; }
+    .tabs { display: flex; border-bottom: 1px solid #ccc; }
+    .tabs button { flex: 1; padding: .75rem; border: none; background: none; cursor: pointer; }
+    .tabs button.active { border-bottom: 3px solid; }
+    .tab-content { display: none; padding: 1rem 0; }
+    .tab-content.active { display: block; }
+    nav.breadcrumb { text-align: left; margin-bottom: 1rem; }
+    nav.breadcrumb a { text-decoration: none; margin-right: .5rem; }
+    nav.breadcrumb span { margin-right: .5rem; }
+    /* Simple modal */
+    .modal { display: none; position: fixed; top: 0; left: 0; width:100%; height:100%; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
+    .modal .modal-content { background: #fff; padding: 2rem; max-width: 400px; width: 90%; text-align: left; position: relative; }
+    .modal .close { position: absolute; top: .5rem; right: .5rem; cursor: pointer; }
+  </style>
 </head>
 <body>
-    <!-- Titles in a Horizontal Row -->
-    <div class="title-container">
-        <h1>CSS Theme Showcase</h1>
-        <h2>Dynamic Style Switching</h2>
-        <h2>Interactive Elements</h2>
+
+  <!-- HEADER -->
+  <header class="section title-container">
+    <h1>CSS Theme Showcase</h1>
+    <h2>Full UI Element Gallery</h2>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="section">
+    <ul style="list-style:none;display:flex;justify-content:center;gap:1rem;">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Themes</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">Docs</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- THEME SELECTOR -->
+  <section class="section container">
+    <h2>Theme Selector</h2>
+    <select id="theme-selector">
+      <option value="default.css">Default</option>
+      <option value="dark.css">Dark</option>
+      <option value="blue-black-prof.css">Blue/Black Pro</option>
+      <option value="black-purple.css">Black/Purple Pro</option>
+      <!-- etc -->
+    </select>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="section container">
+    <h2>Typography</h2>
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+    <p>This is a paragraph of text to show body font styling. <a href="#">This is a link</a> inside a paragraph.</p>
+    <blockquote>
+      This is a blockquote. Use it to highlight quotes or callouts in your theme.
+    </blockquote>
+    <ul>
+      <li>Unordered list item 1</li>
+      <li>Unordered list item 2</li>
+      <li>Unordered list item 3</li>
+    </ul>
+    <ol>
+      <li>Ordered list item 1</li>
+      <li>Ordered list item 2</li>
+      <li>Ordered list item 3</li>
+    </ol>
+  </section>
+
+  <!-- BUTTONS & BADGES -->
+  <section class="section container">
+    <h2>Buttons & Badges</h2>
+    <button class="btn">Default Button</button>
+    <button class="btn">Primary Button</button>
+    <button class="btn">Secondary Button</button>
+    <div>
+      <span class="badge">Badge 1</span>
+      <span class="badge">Badge 2</span>
+      <span class="badge">Badge 3</span>
     </div>
+  </section>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Themes</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Theme Selector -->
-    <div class="container">
-        <h2>Select a Theme</h2>
-        <p>Use the dropdown below to apply different CSS themes dynamically.</p>
-        <select id="theme-selector">
-            <option value="default.css">Default Theme</option>
-            <option value="dark.css">Dark Theme</option>
-            <option value="light.css">Light Theme</option>
-            <option value="modern.css">Modern Theme</option>
-            <option value="gradient.css">Gradient Theme</option>
-            <option value="v-modern.css">V Modern Theme</option>
-            <option value="monotone.css">Monotone Theme</option>
-            <option value="terminal.css">Computer Terminal Theme</option>
-             <option value="blue-black-prof.css">Blue and Black Professional</option>
-            <option value="black-purple-prof.css">Purple and Black Professional</option>
-            
-            <option value="future-holo.css">Futuristic Holographic Theme</option>
-            <option value="winter.css">Winter Wonderland Theme</option>
-            <option value="fall.css">Fall Theme</option>
-            <option value="futuristic.css">Futuristic Theme</option>
-            <option value="adventure.css">Adventure Theme</option>
-            <option value="cyber-night.css">Cyberpunk Nightscape Theme</option>
-            <option value="globe.css">GlobeTheme</option>
-            <option value="minimal-neon.css">Minimalistic Neon Theme</option>
-            <option value="vintage-library.css">Vintage Library Theme</option>
-            <option value="basic-elegant.css">Simple Elegant Theme</option>
-            <option value="fantasy-basic.css">Basic Fantasy Theme</option>
-            <option value="mystic-forest.css">Mystical Forest Theme</option>
-            <option value="steampunk.css">Steampunk Industrial Theme</option>
+  <!-- FORM ELEMENTS -->
+  <section class="section container">
+    <h2>Forms & Inputs</h2>
+    <form>
+      <div class="form-group">
+        <label for="inputText">Text Input</label>
+        <input id="inputText" type="text" placeholder="Enter text">
+      </div>
+      <div class="form-group">
+        <label for="inputEmail">Email Input</label>
+        <input id="inputEmail" type="email" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label for="selectDemo">Select Dropdown</label>
+        <select id="selectDemo">
+          <option>Option A</option>
+          <option>Option B</option>
+          <option>Option C</option>
         </select>
+      </div>
+      <div class="form-group">
+        <label>Radio Buttons</label>
+        <label><input type="radio" name="rad" checked> Choice 1</label>
+        <label><input type="radio" name="rad"> Choice 2</label>
+      </div>
+      <div class="form-group">
+        <label><input type="checkbox"> Check me</label>
+      </div>
+      <div class="form-group">
+        <label for="textareaDemo">Textarea</label>
+        <textarea id="textareaDemo" rows="3" placeholder="Enter longer text..."></textarea>
+      </div>
+      <button type="submit" class="btn">Submit Form</button>
+    </form>
+  </section>
+
+  <!-- TABLES & CODE -->
+  <section class="section container">
+    <h2>Table & Code</h2>
+    <table>
+      <thead>
+        <tr><th>Header 1</th><th>Header 2</th><th>Header 3</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Row 1 Col 1</td><td>Row 1 Col 2</td><td>Row 1 Col 3</td></tr>
+        <tr><td>Row 2 Col 1</td><td>Row 2 Col 2</td><td>Row 2 Col 3</td></tr>
+      </tbody>
+    </table>
+    <pre><code>&lt;div class="example"&gt;Sample code block&lt;/div&gt;</code></pre>
+  </section>
+
+  <!-- CARDS & GRID -->
+  <section class="section container">
+    <h2>Card Grid</h2>
+    <div class="grid grid-3">
+      <div class="card container"><h3>Card Title</h3><p>Card content goes here.</p></div>
+      <div class="card container"><h3>Card Title</h3><p>Card content goes here.</p></div>
+      <div class="card container"><h3>Card Title</h3><p>Card content goes here.</p></div>
     </div>
+  </section>
 
-    <!-- Interactive Elements -->
-    <div class="container">
-        <!-- Buttons Section -->
-        <div class="buttons">
-            <h2>Styled Buttons</h2>
-            <button class="button">Primary Button</button>
-            <button class="btn">Secondary Button</button>
-        </div>
-
-        <!-- Form Elements -->
-        <div class="form-elements">
-            <h2>Form Inputs</h2>
-            <p>Test how themes style form elements.</p>
-            <input type="text" placeholder="Enter text here...">
-            <input type="email" placeholder="Enter your email...">
-            <br><br>
-            <label>
-                <input type="checkbox">
-                Enable Dark Mode
-            </label>
-        </div>
+  <!-- TABS -->
+  <section class="section container">
+    <h2>Tabs</h2>
+    <div class="tabs">
+      <button class="active" data-tab="tab1">Tab 1</button>
+      <button data-tab="tab2">Tab 2</button>
+      <button data-tab="tab3">Tab 3</button>
     </div>
-
-    <!-- Snowflake Elements -->
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-
-    <!-- Leaf Elements -->
-    <div class="leaf">🍁</div>
-    <div class="leaf">🍂</div>
-    <div class="leaf">🍃</div>
-    <div class="leaf">🍁</div>
-    <div class="leaf">🍂</div>
-    <div class="leaf">🍃</div>
-    <div class="leaf">🍁</div>
-    <div class="leaf">🍂</div>
-    <div class="leaf">🍃</div>
-    <div class="leaf">🍁</div>
-
-    <!-- Popup Modal -->
-    <div class="modal" id="themeModal">
-        <p>Welcome to the Theme Showcase!</p>
-        <button onclick="closeModal()">Close</button>
+    <div id="tab1" class="tab-content active">
+      <p>Content for Tab 1.</p>
     </div>
+    <div id="tab2" class="tab-content">
+      <p>Content for Tab 2.</p>
+    </div>
+    <div id="tab3" class="tab-content">
+      <p>Content for Tab 3.</p>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 CSS Theme Switcher</p>
-    </footer>
+  <!-- ALERTS & NOTIFICATIONS -->
+  <section class="section container">
+    <h2>Alerts</h2>
+    <div class="alert" style="background:#f8d7da;color:#721c24;">Error alert message.</div>
+    <div class="alert" style="background:#d1ecf1;color:#0c5460;">Info alert message.</div>
+    <div class="alert" style="background:#d4edda;color:#155724;">Success alert message.</div>
+  </section>
 
-    <script>
-        // Theme Switcher
-        document.getElementById("theme-selector").addEventListener("change", function() {
-            const theme = this.value;
-            document.getElementById("theme-stylesheet").href = theme;
+  <!-- MODAL DEMO -->
+  <section class="section container">
+    <h2>Modal</h2>
+    <button class="btn" id="openModal">Open Modal</button>
+  </section>
 
-            // Hide all icons
-            document.querySelectorAll('.snowflake, .leaf').forEach(el => el.style.display = 'none');
+  <!-- FOOTER -->
+  <footer class="section">
+    <p>&copy; 2025 CSS Theme Showcase</p>
+  </footer>
 
-            // Show relevant icons based on theme
-            if (theme === 'winter.css') {
-                document.querySelectorAll('.snowflake').forEach(el => el.style.display = 'block');
-            } else if (theme === 'fall.css') {
-                document.querySelectorAll('.leaf').forEach(el => el.style.display = 'block');
-            }
-        });
+  <div class="modal" id="demoModal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h3>Modal Title</h3>
+      <p>This is a demo modal window.</p>
+    </div>
+  </div>
 
-        // Modal Popup
-        function closeModal() {
-            document.getElementById("themeModal").classList.remove("active");
-        }
+  <script>
+    // Theme switcher
+    document.getElementById('theme-selector')
+      .addEventListener('change', e => {
+        document.getElementById('theme-stylesheet').href = e.target.value;
+      });
 
-        window.onload = function() {
-            setTimeout(() => {
-                document.getElementById("themeModal").classList.add("active");
-            }, 2000);
-        };
-    </script>
+    // Tabs
+    document.querySelectorAll('.tabs button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Modal
+    document.getElementById('openModal').onclick = () => {
+      document.getElementById('demoModal').style.display = 'flex';
+    };
+    document.getElementById('closeModal').onclick = () => {
+      document.getElementById('demoModal').style.display = 'none';
+    };
+    window.onclick = e => {
+      if (e.target === document.getElementById('demoModal')) {
+        document.getElementById('demoModal').style.display = 'none';
+      }
+    };
+  </script>
 </body>
 </html>
