@@ -1,11 +1,44 @@
-/* ------------------------------------------------------
-   Import Google Fonts (Including Thin Weight for Poppins)
---------------------------------------------------------- */
+/* ===================================================
+   Modern Pro Theme — Expanded & Creative Touches
+   =================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap');
 
-/* ------------------------------------------------------
-   CSS Reset & Base Styles
---------------------------------------------------------- */
+:root {
+  /* Core colors */
+  --bg-page:        #f8fafc;
+  --bg-surface:     #ffffff;
+  --fg-primary:     #333333;
+  --fg-secondary:   #555555;
+  --accent:         #0070f3;
+  --accent-dark:    #0051a8;
+  --border:         #eaeaea;
+
+  /* Typography */
+  --font-sans:      'Inter', sans-serif;
+  --font-heading:   'Poppins', sans-serif;
+  --fs-base:        1rem;
+  --fs-lg:          1.125rem;
+  --fs-xl:          1.5rem;
+  --lh-base:        1.6;
+
+  /* Spacing */
+  --gap-xs:         0.5rem;
+  --gap-sm:         1rem;
+  --gap-md:         1.5rem;
+  --gap-lg:         2rem;
+
+  /* Radii & shadows */
+  --radius:         0.5rem;
+  --shadow-sm:      0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md:      0 4px 8px rgba(0,0,0,0.1);
+
+  /* Transitions */
+  --trans:          0.3s ease;
+}
+
+/* ----------------------------------------
+   Reset & Base
+---------------------------------------- */
 *,
 *::before,
 *::after {
@@ -20,296 +53,296 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-  background-color: #f8fafc; /* Light, clean background */
-  color: #333;
-  padding: 20px;
-  opacity: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  color: var(--fg-primary);
+  background-color: var(--bg-page);
+  padding: var(--gap-lg);
   animation: slideIn 0.7s ease-out forwards;
+  opacity: 0;
 }
 
-/* Page Load Animation */
 @keyframes slideIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  50% {
-    transform: translateX(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  0% { opacity: 0; transform: translateX(-20px); }
+  50% { transform: translateX(10px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 
-/* ------------------------------------------------------
-   CSS Variables for Consistent Styling
---------------------------------------------------------- */
-:root {
-  --primary-bg: #ffffff;
-  --primary-color: #333;
-  --secondary-bg: #1c1e21;
-  --accent-color: #0070f3;
-  --nav-bg: #111;
-  --nav-hover: #0070f3;
-  --border-color: #eaeaea;
-  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --nav-spacing: 1.5rem;
-  --input-bg: #f0f4f8;
-  --input-border: #d1d5db;
-  --input-focus: #0070f3;
-  --error-color: #ff4d4d;
+/* ----------------------------------------
+   Headings
+---------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--fg-primary);
+  margin-bottom: var(--gap-sm);
+  line-height: 1.2;
 }
 
-/* ------------------------------------------------------
-   Buttons (Modern Black & White Style)
---------------------------------------------------------- */
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; color: var(--accent-dark); }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+/* ----------------------------------------
+   Links & Text
+---------------------------------------- */
+a {
+  color: var(--accent);
   text-decoration: none;
-  background-color: #000;  /* Static Black */
-  color: #fff;  /* Static White Text */
-  border: 2px solid #000;
-  border-radius: 6px;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
+  position: relative;
+  transition: color var(--trans);
 }
-
-.btn:hover {
-  background-color: #fff;  /* White Background */
-  color: #000;  /* Black Text */
-  border: 2px solid #000;  /* Black Outline */
-  transform: translateY(-2px);
+a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 0; height: 2px;
+  background: var(--accent);
+  transition: width var(--trans);
 }
-
-/* Secondary Button (Muted Style) */
-.btn.secondary {
-  background-color: #333;
-  border-color: #333;
+a:hover {
+  color: var(--accent-dark);
 }
-
-.btn.secondary:hover {
-  background-color: #fff;
-  color: #333;
-}
-
-.button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
-  text-decoration: none;
-  background-color: #000;  /* Static Black */
-  color: #fff;  /* Static White Text */
-  border: 2px solid #000;
-  border-radius: 6px;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #fff;  /* White Background */
-  color: #000;  /* Black Text */
-  border: 2px solid #000;  /* Black Outline */
-  transform: translateY(-2px);
-}
-
-/* Secondary Button (Muted Style) */
-.button.secondary {
-  background-color: #333;
-  border-color: #333;
-}
-
-.button.secondary:hover {
-  background-color: #fff;
-  color: #333;
-}
-
-/* ------------------------------------------------------
-   Form Inputs & Text Fields (Muted Professional Look)
---------------------------------------------------------- */
-input,
-textarea,
-select {
+a:hover::after {
   width: 100%;
-  padding: 0.75rem;
-  font-size: 1rem;
-  background-color: #f6f6f6;  /* Softer Muted Background */
-  border: 1px solid #ccc;  /* Subtle Border */
-  color: #222;  /* Darker, Professional Text */
-  border-radius: 6px;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #000;  /* Black Focus Border */
-  background-color: #fff;  /* Slightly Brighter Background */
+p, li {
+  margin-bottom: var(--gap-md);
+  color: var(--fg-secondary);
+}
+
+/* ----------------------------------------
+   Navigation
+---------------------------------------- */
+nav {
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius);
+  margin-bottom: var(--gap-lg);
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-md);
+  padding: var(--gap-sm) var(--gap-lg);
+  list-style: none;
+}
+nav ul li a {
+  padding: var(--gap-xs) var(--gap-sm);
+  font-weight: 600;
+  transition: background var(--trans), color var(--trans);
+  border-radius: var(--radius);
+}
+nav ul li a:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ----------------------------------------
+   Buttons
+---------------------------------------- */
+.btn, .button {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--fs-base);
+  padding: var(--gap-sm) var(--gap-lg);
+  background: var(--accent);
+  color: #fff;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: background var(--trans), transform .2s, box-shadow var(--trans);
+}
+.btn:hover, .button:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  transform: translateY(-2px);
+}
+.btn.secondary, .button.secondary {
+  background: var(--bg-surface);
+  color: var(--fg-primary);
+  border-color: var(--fg-primary);
+}
+.btn.secondary:hover, .button.secondary:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ----------------------------------------
+   Form Elements
+---------------------------------------- */
+input, textarea, select {
+  width: 100%;
+  padding: var(--gap-sm);
+  font-size: var(--fs-base);
+  background: var(--input-bg, #f0f4f8);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: var(--gap-md);
+  transition: border-color var(--trans), background var(--trans);
+}
+input:focus, textarea:focus, select:focus {
   outline: none;
+  border-color: var(--accent);
+  background: #fff;
 }
 
-/* ------------------------------------------------------
-   Dropdown (Muted, Professional)
---------------------------------------------------------- */
+/* Dropdown wrapper */
 .select-wrapper {
   position: relative;
-  display: inline-block;
-  width: 100%;
 }
-
-select {
-  appearance: none;
-  padding-right: 2rem;
-  cursor: pointer;
-  background-color: #f6f6f6;  /* Muted */
-  border: 1px solid #bbb;
-  color: #222;
-}
-
 .select-wrapper::after {
   content: "▼";
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: var(--gap-sm);
   transform: translateY(-50%);
-  font-size: 0.875rem;
   pointer-events: none;
-  color: #444;
+  color: var(--fg-secondary);
 }
 
-/* ------------------------------------------------------
-   Navigation
---------------------------------------------------------- */
-nav {
-  background-color: var(--nav-bg);
-  padding: 1rem 2rem;
-  margin-bottom: 2rem;
+/* ----------------------------------------
+   Grid Utilities & Cards
+---------------------------------------- */
+.grid { display: grid; gap: var(--gap-lg); }
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.card {
+  background: var(--bg-surface);
+  padding: var(--gap-lg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--trans), box-shadow var(--trans);
+  text-align: left;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
 }
 
-nav ul {
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+/* ----------------------------------------
+   Tables & Code Blocks
+---------------------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--gap-md);
 }
-
-nav ul li {
-  margin: 0 var(--nav-spacing);
+th, td {
+  padding: var(--gap-sm);
+  border: 1px solid var(--border);
+  text-align: left;
 }
-
-nav ul li a {
-  display: inline-block;
-  padding: 0.75rem 1rem;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease, transform 0.3s ease;
-  border-radius: 4px;
+th {
+  background: var(--bg-surface);
 }
-
-nav ul li a:hover {
-  color: var(--nav-hover);
-  transform: translateY(-2px);
-}
-
-/* ------------------------------------------------------
-   Modal Styles (Popup Windows)
---------------------------------------------------------- */
-.modal {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: var(--box-shadow);
-  z-index: 1000;
-}
-
-.modal.active {
+pre, code {
   display: block;
+  background: var(--bg-surface);
+  padding: var(--gap-sm);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin-bottom: var(--gap-md);
 }
 
-.modal-header {
+/* ----------------------------------------
+   Tabs & Alerts
+---------------------------------------- */
+.tabs {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1rem;
+  gap: var(--gap-sm);
+  border-bottom: 2px solid var(--border);
+  margin-bottom: var(--gap-md);
 }
-
-.modal-close {
+.tabs button {
+  background: none;
+  border: none;
+  padding: var(--gap-sm) var(--gap-md);
   cursor: pointer;
-  font-size: 1.5rem;
-  font-weight: bold;
+  transition: color var(--trans), border-bottom var(--trans);
+  color: var(--fg-secondary);
+  border-bottom: 3px solid transparent;
 }
+.tabs button.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; }
 
-/* ------------------------------------------------------
-   Alert Messages
---------------------------------------------------------- */
 .alert {
-  padding: 1rem;
-  border-radius: 5px;
-  margin-bottom: 1rem;
+  padding: var(--gap-sm) var(--gap-md);
+  border-radius: var(--radius);
+  margin-bottom: var(--gap-md);
   font-weight: 600;
 }
-
 .alert.success {
-  background-color: #d4edda;
+  background: #d4edda;
   color: #155724;
   border-left: 5px solid #28a745;
 }
-
 .alert.error {
-  background-color: #f8d7da;
+  background: #f8d7da;
   color: #721c24;
   border-left: 5px solid #dc3545;
 }
 
-/* ------------------------------------------------------
+/* ----------------------------------------
+   Modal
+---------------------------------------- */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  align-items: center;
+  justify-content: center;
+  padding: var(--gap-lg);
+}
+.modal.active {
+  display: flex;
+}
+.modal-content {
+  background: var(--bg-surface);
+  padding: var(--gap-lg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  max-width: 500px;
+  width: 100%;
+  text-align: left;
+}
+.modal-close {
+  position: absolute;
+  top: var(--gap-sm);
+  right: var(--gap-sm);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/* ----------------------------------------
    Footer
---------------------------------------------------------- */
+---------------------------------------- */
 footer {
-  background-color: var(--secondary-bg);
-  color: #fff;
+  background: var(--bg-surface);
+  color: var(--fg-secondary);
   text-align: center;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-top: 2rem;
+  padding: var(--gap-md);
+  border-radius: var(--radius);
+  margin-top: var(--gap-lg);
 }
 
-/* ------------------------------------------------------
-   Form Group Styling
---------------------------------------------------------- */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #444;  /* Subtle but readable */
-}
-
-/* ------------------------------------------------------
-   Responsive Design Adjustments
---------------------------------------------------------- */
+/* ----------------------------------------
+   Responsive Tweaks
+---------------------------------------- */
 @media (max-width: 768px) {
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  nav ul { flex-wrap: wrap; }
+  .btn, .button { width: 100%; }
 }
-
