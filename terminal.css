@@ -1,247 +1,328 @@
-/* Importing Terminal-like Font */
+/* =========================================
+   Computer Terminal Theme — Full Revamp
+   ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
 
-/* Global Styles */
-* {
+:root {
+  /* Palette */
+  --bg-page:        #000000;
+  --bg-panel:       #111111;
+  --fg-primary:     #00ff00;
+  --fg-secondary:   #009900;
+  --border-color:   #004400;
+  --shadow-color:   rgba(0, 255, 0, 0.2);
+
+  /* Typography */
+  --font-mono:      'Source Code Pro', monospace;
+  --fs-base:        1rem;
+  --fs-lg:          1.125rem;
+  --fs-xl:          1.5rem;
+  --lh-base:        1.6;
+
+  /* Spacings */
+  --gap-xs:         0.25rem;
+  --gap-sm:         0.5rem;
+  --gap-md:         1rem;
+  --gap-lg:         1.5rem;
+
+  /* Radius & Shadow */
+  --radius:         0.25rem;
+  --shadow-sm:      0 2px 6px var(--shadow-color);
+  --trans:          0.2s ease-in-out;
+}
+
+/* ----------------------------------------
+   Reset & Base
+---------------------------------------- */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Source Code Pro', monospace; /* Applying terminal-like font globally */
+  font-family: var(--font-mono);
 }
-
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
 body {
-  background-color: #000;
-  color: #00ff00;
+  background-color: var(--bg-page);
+  color: var(--fg-primary);
+  line-height: var(--lh-base);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding: var(--gap-lg);
 }
 
-/* Header and Navigation */
+/* ----------------------------------------
+   Container Utility
+---------------------------------------- */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: var(--gap-md) 0;
+}
+
+/* ----------------------------------------
+   Header & Navigation
+---------------------------------------- */
 header {
-  width: 100%;
-  background-color: #222;
-  padding: 10px;
+  background-color: var(--bg-panel);
+  padding: var(--gap-md) 0;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
 }
-
-nav {
-  width: 100%;
-  background-color: #111;
-  padding: 10px 0;
+.title-container {
   display: flex;
   justify-content: center;
+  gap: var(--gap-lg);
+  flex-wrap: wrap;
 }
+.title-container h1,
+.title-container h2 {
+  color: var(--fg-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.title-container h1 { font-size: var(--fs-xl); }
+.title-container h2 { font-size: var(--fs-lg); }
 
+nav {
+  background-color: var(--bg-panel);
+  padding: var(--gap-sm) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-lg);
+}
 nav a {
-  color: #00ff00;
+  color: var(--fg-primary);
   text-decoration: none;
-  margin: 0 15px;
-  font-size: 1.2rem;
+  font-size: var(--fs-lg);
+  padding: var(--gap-xs) var(--gap-sm);
+  border-radius: var(--radius);
+  transition: background-color var(--trans);
 }
-
 nav a:hover {
-  text-decoration: underline;
+  background-color: var(--border-color);
 }
 
-/* Typography */
+/* ----------------------------------------
+   Typography
+---------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
-  margin: 10px 0;
+  margin: var(--gap-md) 0 var(--gap-sm);
   font-weight: 700;
+  color: var(--fg-primary);
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+p, li {
+  margin-bottom: var(--gap-md);
+  color: var(--fg-secondary);
+}
+blockquote {
+  border-left: 4px solid var(--border-color);
+  padding-left: var(--gap-md);
+  font-style: italic;
+  color: var(--fg-secondary);
 }
 
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-/* Buttons */
-button {
-  background-color: #111;
-  color: #00ff00;
-  border: 2px solid #00ff00;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
+/* ----------------------------------------
+   Buttons & CTAs
+---------------------------------------- */
+button, .btn {
+  background-color: var(--bg-panel);
+  color: var(--fg-primary);
+  border: 2px solid var(--fg-primary);
+  padding: var(--gap-sm) var(--gap-md);
+  border-radius: var(--radius);
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color var(--trans), color var(--trans), transform .2s;
+}
+button:hover, .btn:hover {
+  background-color: var(--fg-primary);
+  color: var(--bg-page);
+  transform: translateY(-2px);
+}
+button:active, .btn:active {
+  transform: translateY(0);
 }
 
-button:hover {
-  background-color: #00ff00;
-  color: #000;
-  transform: scale(1.05);
-}
-
-/* Forms */
-input[type="text"], input[type="email"], input[type="password"], textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 2px solid #00ff00;
-  border-radius: 5px;
-  background-color: #111;
-  color: #00ff00;
-}
-
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
-  border-color: #00cc00;
-  outline: none;
-}
-
+/* ----------------------------------------
+   Form Elements
+---------------------------------------- */
 label {
   display: block;
-  margin-bottom: 5px;
-  color: #00ff00;
+  margin-bottom: var(--gap-xs);
+  color: var(--fg-primary);
 }
-
-/* Checkboxes and Radio Buttons */
-input[type="checkbox"], input[type="radio"] {
-  margin-right: 10px;
-}
-
-input[type="checkbox"] + label, input[type="radio"] + label {
-  display: inline-block;
-  font-size: 1rem;
-}
-
-/* Dropdowns */
-select {
+input, textarea, select {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 2px solid #00ff00;
-  border-radius: 5px;
-  background-color: #111;
-  color: #00ff00;
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  padding: var(--gap-sm);
+  background-color: var(--bg-panel);
+  color: var(--fg-primary);
+  border: 2px solid var(--fg-primary);
+  border-radius: var(--radius);
+  margin-bottom: var(--gap-md);
+  transition: border-color var(--trans), background-color var(--trans);
+}
+input:focus, textarea:focus, select:focus {
   outline: none;
-  transition: border-color 0.3s ease;
+  border-color: var(--fg-secondary);
 }
 
-select:focus {
-  border-color: #00cc00;
+/* ----------------------------------------
+   Styled Dropdown Arrow
+---------------------------------------- */
+.select-wrapper {
+  position: relative;
+}
+.select-wrapper select {
+  appearance: none;
+  padding-right: var(--gap-lg);
+}
+.select-wrapper::after {
+  content: "▼";
+  position: absolute;
+  top: 50%;
+  right: var(--gap-sm);
+  transform: translateY(-50%);
+  color: var(--fg-primary);
+  pointer-events: none;
 }
 
-/* Tables */
+/* ----------------------------------------
+   Tables
+---------------------------------------- */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
+  margin: var(--gap-lg) 0;
 }
-
-table, th, td {
-  border: 2px solid #00ff00;
-}
-
 th, td {
-  padding: 10px;
+  padding: var(--gap-sm);
+  border: 1px solid var(--fg-primary);
   text-align: left;
 }
-
 th {
-  background-color: #111;
+  background-color: var(--bg-panel);
 }
 
-/* Lists */
+/* ----------------------------------------
+   Lists
+---------------------------------------- */
 ul, ol {
-  margin: 20px 0;
-  padding-left: 40px;
+  margin: var(--gap-md) 0;
+  padding-left: 1.5rem;
 }
-
 li {
-  margin-bottom: 10px;
+  margin-bottom: var(--gap-sm);
 }
 
-/* Footer */
-footer {
-  width: 100%;
-  background-color: #222;
-  color: #00ff00;
-  text-align: center;
-  padding: 10px 0;
-  position: fixed;
-  bottom: 0;
+/* ----------------------------------------
+   Cards & Grids
+---------------------------------------- */
+.grid {
+  display: grid;
+  gap: var(--gap-md);
+}
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: repeat(3,1fr); }
+.card {
+  background-color: var(--bg-panel);
+  padding: var(--gap-md);
+  border: 1px solid var(--fg-primary);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--trans), box-shadow var(--trans);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
-/* Utility Classes */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.mt-10 {
-  margin-top: 10px;
-}
-
-.mb-10 {
-  margin-bottom: 10px;
-}
-
-.p-10 {
-  padding: 10px;
-}
-
-/* Popup Styles */
-.popup {
+/* ----------------------------------------
+   Modals
+---------------------------------------- */
+.modal {
   display: none;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #111;
-  border: 2px solid #00ff00;
-  padding: 20px;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
   z-index: 1000;
-  width: 80%;
+  padding: var(--gap-lg);
+}
+.modal.active {
+  display: flex;
+}
+.modal-content {
+  background-color: var(--bg-panel);
+  padding: var(--gap-lg);
+  border: 2px solid var(--fg-primary);
+  border-radius: var(--radius);
   max-width: 500px;
-  border-radius: 5px;
+  width: 100%;
+  position: relative;
+  box-shadow: var(--shadow-md);
+  text-align: left;
 }
-
-.popup.active {
-  display: block;
-}
-
-.popup-header {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.popup-close {
+.modal-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: var(--gap-xs);
+  right: var(--gap-xs);
   background: none;
   border: none;
-  color: #00ff00;
-  font-size: 1.5rem;
+  color: var(--fg-primary);
+  font-size: 1.25rem;
   cursor: pointer;
 }
 
-/* Animations */
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
+/* ----------------------------------------
+   Footer
+---------------------------------------- */
+footer {
+  background-color: var(--bg-panel);
+  color: var(--fg-primary);
+  text-align: center;
+  padding: var(--gap-sm);
+  margin-top: auto;
+  border-top: 1px solid var(--border-color);
 }
 
-.blink {
-  animation: blink 1s step-start infinite;
+/* ----------------------------------------
+   Utility Classes
+---------------------------------------- */
+.text-center { text-align: center; }
+.mt-10 { margin-top: 10px; }
+.mb-10 { margin-bottom: 10px; }
+.p-10  { padding: 10px; }
+
+/* ----------------------------------------
+   Blink Animation
+---------------------------------------- */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.blink { animation: blink 1s step-start infinite; }
+
+/* ----------------------------------------
+   Responsive
+---------------------------------------- */
+@media (max-width: 768px) {
+  nav ul { flex-wrap: wrap; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  button, .btn { width: 100%; }
 }
