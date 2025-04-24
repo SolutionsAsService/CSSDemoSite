@@ -1,56 +1,54 @@
-/* ========================================
-   Monotone Theme — Expanded & Refined
-   ======================================== */
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+/* ===================================================
+   Monotone Theme — Revamped & Comprehensive
+   =================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-  /* Palette */
-  --bg-page:      #2b2b2b;
-  --bg-surface:   #333333;
-  --fg-primary:   #eaeaea;
-  --fg-secondary: #c0c0c0;
-  --border:       #444444;
-  --shadow:       rgba(0,0,0,0.5);
+  /* Base Colors */
+  --bg-page:       #1f1f1f;    /* darker page bg for less glare */
+  --bg-surface:    #2b2b2b;    /* slightly lighter panels */
+  --fg-primary:    #e0e0e0;    /* main text */
+  --fg-secondary:  #b0b0b0;    /* muted text */
+  --accent:        #c0c0c0;    /* for links/buttons highlight */
+  --border:        #3a3a3a;    /* subtle panel borders */
 
   /* Typography */
-  --font-body:    'Lora', serif;
-  --font-heading: 'Lora', serif;
-  --fs-base:      1rem;
-  --fs-lg:        1.125rem;
-  --fs-xl:        1.5rem;
-  --lh-body:      1.6;
+  --font-body:     'Lora', serif;
+  --font-heading:  'Lora', serif;
+  --fs-base:       1rem;
+  --fs-lg:         1.125rem;
+  --fs-xl:         1.5rem;
+  --lh-body:       1.6;
 
-  /* Spacings */
-  --gap-xs:       0.5rem;
-  --gap-sm:       1rem;
-  --gap-md:       1.5rem;
-  --gap-lg:       2rem;
+  /* Spacing */
+  --gap-xs:        0.5rem;
+  --gap-sm:        1rem;
+  --gap-md:        1.5rem;
+  --gap-lg:        2rem;
 
-  /* Rounding & shadows */
-  --radius:       0.25rem;
-  --shadow-sm:    0 2px 6px var(--shadow);
-  --shadow-md:    0 4px 12px var(--shadow);
+  /* Radii & Shadows */
+  --radius:        0.25rem;
+  --shadow-sm:     0 2px 6px rgba(0,0,0,0.7);
+  --shadow-md:     0 4px 12px rgba(0,0,0,0.7);
 
-  /* Animation */
-  --fade-time:    0.5s ease-out;
+  /* Transition */
+  --trans:         0.3s ease;
 }
 
 /* ----------------------------------------
-   Global Reset & Base
+   Global Reset & Base Styles
 ---------------------------------------- */
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-
 html {
   font-size: 16px;
   scroll-behavior: smooth;
 }
-
 body {
   font-family: var(--font-body);
   font-size: var(--fs-base);
@@ -58,20 +56,16 @@ body {
   background-color: var(--bg-page);
   color: var(--fg-primary);
   padding: var(--gap-lg);
-  transition: background-color var(--fade-time), color var(--fade-time);
 }
 
 /* ----------------------------------------
-   Header & Title
+   Header & Title Container
 ---------------------------------------- */
 .title-container,
 header {
   background-color: var(--bg-surface);
   padding: var(--gap-md) 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--gap-md);
+  text-align: center;
   border-bottom: 2px solid var(--border);
 }
 .title-container h1,
@@ -82,6 +76,8 @@ header h2 {
   color: var(--fg-primary);
   font-size: var(--fs-xl);
   text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--gap-sm);
 }
 
 /* ----------------------------------------
@@ -103,70 +99,81 @@ nav a {
   font-family: var(--font-heading);
   color: var(--fg-primary);
   text-decoration: none;
-  font-size: var(--fs-lg);
   padding: var(--gap-xs) var(--gap-sm);
   border-radius: var(--radius);
-  transition: background-color var(--fade-time);
+  transition: background-color var(--trans), color var(--trans);
 }
 nav a:hover {
   background-color: var(--border);
 }
 
 /* ----------------------------------------
-   Buttons & Interactive
+   Typography Elements
 ---------------------------------------- */
-.btn,
-.button {
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+p, li {
+  margin-bottom: var(--gap-md);
+  color: var(--fg-secondary);
+}
+blockquote {
+  border-left: 4px solid var(--border);
+  padding-left: var(--gap-md);
+  color: var(--fg-secondary);
+  font-style: italic;
+  margin: var(--gap-md) 0;
+}
+
+/* ----------------------------------------
+   Buttons
+---------------------------------------- */
+.btn, .button {
   display: inline-block;
   font-family: var(--font-heading);
   font-weight: 700;
-  background-color: var(--bg-surface);
+  background: var(--bg-surface);
   color: var(--fg-primary);
   border: 1px solid var(--border);
   padding: var(--gap-sm) var(--gap-md);
-  margin: var(--gap-sm) 0;
   border-radius: var(--radius);
   text-transform: uppercase;
-  letter-spacing: .025em;
-  transition: background-color var(--fade-time), transform .2s;
+  letter-spacing: .05em;
+  transition: background-color var(--trans), transform .2s;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
 }
-.btn:hover,
-.button:hover {
-  background-color: var(--border);
+.btn:hover, .button:hover {
+  background: var(--border);
   transform: translateY(-2px);
 }
-.btn:active,
-.button:active {
+.btn:active, .button:active {
   transform: translateY(0);
 }
 
 /* ----------------------------------------
-   Form Elements
+   Form Controls
 ---------------------------------------- */
-.form-group {
-  margin-bottom: var(--gap-md);
-}
+.form-group { margin-bottom: var(--gap-md); }
 label {
   display: block;
   margin-bottom: var(--gap-xs);
   color: var(--fg-secondary);
 }
-input[type="text"],
-input[type="email"],
-select,
-textarea {
+input, textarea, select {
   width: 100%;
   max-width: 400px;
   padding: var(--gap-sm);
-  background-color: var(--bg-surface);
+  background: var(--bg-surface);
   color: var(--fg-primary);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: border-color var(--fade-time);
+  transition: border-color var(--trans);
 }
-input:focus,
-select:focus,
-textarea:focus {
+input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--fg-secondary);
 }
@@ -180,6 +187,7 @@ textarea:focus {
 }
 .select-wrapper select {
   appearance: none;
+  padding-right: var(--gap-lg);
 }
 .select-wrapper::after {
   content: "▼";
@@ -187,26 +195,24 @@ textarea:focus {
   top: 50%;
   right: var(--gap-sm);
   transform: translateY(-50%);
-  pointer-events: none;
   color: var(--fg-secondary);
+  pointer-events: none;
 }
 
 /* ----------------------------------------
    Cards & Grid Utilities
 ---------------------------------------- */
-.grid {
-  display: grid;
-  gap: var(--gap-lg);
-}
+.grid { display: grid; gap: var(--gap-lg); }
 .grid-2 { grid-template-columns: 1fr 1fr; }
 .grid-3 { grid-template-columns: repeat(3,1fr); }
 .card {
-  background-color: var(--bg-surface);
+  background: var(--bg-surface);
   padding: var(--gap-md);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--fade-time), box-shadow var(--fade-time);
+  transition: transform var(--trans), box-shadow var(--trans);
+  text-align: left;
 }
 .card:hover {
   transform: translateY(-4px);
@@ -214,7 +220,7 @@ textarea:focus {
 }
 
 /* ----------------------------------------
-   Tables & Code Blocks
+   Tables & Code
 ---------------------------------------- */
 table {
   width: 100%;
@@ -228,12 +234,11 @@ th, td {
   color: var(--fg-primary);
 }
 th {
-  background-color: var(--bg-surface);
+  background: var(--bg-surface);
 }
-pre,
-code {
+pre, code {
   display: block;
-  background-color: var(--bg-surface);
+  background: var(--bg-surface);
   padding: var(--gap-sm);
   border-radius: var(--radius);
   overflow-x: auto;
@@ -241,28 +246,20 @@ code {
 }
 
 /* ----------------------------------------
-   Alerts & Notifications
+   Alerts & Tabs
 ---------------------------------------- */
 .alert {
   padding: var(--gap-sm) var(--gap-md);
   border-radius: var(--radius);
   margin-bottom: var(--gap-md);
   font-weight: 700;
-}
-.alert.success {
-  background-color: #3d3d3d;
-  border-left: 4px solid #6a6a6a;
+  background: var(--bg-surface);
+  border-left: 4px solid var(--border);
   color: var(--fg-primary);
 }
-.alert.error {
-  background-color: #3d3d3d;
-  border-left: 4px solid #a60000;
-  color: #eaeaea;
-}
+.alert.success { border-color: #28a745; }
+.alert.error   { border-color: #dc3545; }
 
-/* ----------------------------------------
-   Tabs & Accordions
----------------------------------------- */
 .tabs {
   display: flex;
   gap: var(--gap-sm);
@@ -276,23 +273,18 @@ code {
   font-family: var(--font-heading);
   color: var(--fg-secondary);
   cursor: pointer;
-  transition: color var(--fade-time), border-bottom var(--fade-time);
+  transition: color var(--trans), border-bottom var(--trans);
   border-bottom: 2px solid transparent;
 }
 .tabs button.active {
   color: var(--fg-primary);
   border-bottom-color: var(--fg-primary);
 }
-.tab-content {
-  display: none;
-  padding-top: var(--gap-md);
-}
-.tab-content.active {
-  display: block;
-}
+.tab-content { display: none; }
+.tab-content.active { display: block; }
 
 /* ----------------------------------------
-   Modal Popup
+   Modal
 ---------------------------------------- */
 .modal {
   display: none;
@@ -307,13 +299,13 @@ code {
   display: flex;
 }
 .modal-content {
-  background-color: var(--bg-surface);
+  background: var(--bg-surface);
   padding: var(--gap-lg);
   border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
   max-width: 500px;
   width: 100%;
-  position: relative;
-  box-shadow: var(--shadow-md);
+  text-align: center;
 }
 .modal-close {
   position: absolute;
@@ -328,16 +320,16 @@ code {
    Footer
 ---------------------------------------- */
 footer {
-  background-color: var(--bg-surface);
+  background: var(--bg-surface);
   color: var(--fg-secondary);
   text-align: center;
-  padding: var(--gap-md);
+  padding: var(--gap-lg);
   margin-top: var(--gap-lg);
   border-top: 2px solid var(--border);
 }
 
 /* ----------------------------------------
-   Responsive Breakpoints
+   Responsive
 ---------------------------------------- */
 @media (max-width: 768px) {
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
