@@ -1,5 +1,5 @@
 /* ========================================
-   Light Purple Gradient Theme – Unified
+   Light Purple Gradient Theme – Clean & Right-Aligned
    ======================================== */
 @import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:wght@400;600&display=swap');
 
@@ -10,7 +10,6 @@
 
   /* Text & accents */
   --fg-base:       #1a202c;
-  --fg-muted:      #4a5568;
   --accent:        #b19cd9;
 
   /* Spacing & sizing */
@@ -18,8 +17,6 @@
   --gap-md:        1.5rem;
   --gap-lg:        2rem;
   --radius:        0.75rem;
-
-  /* Shadows */
   --shadow-sm:     0 1px 3px rgba(0,0,0,0.1);
 }
 
@@ -33,41 +30,22 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: 'Cascadia Code', monospace;
   background: linear-gradient(to bottom right, var(--gradient-start), var(--gradient-end));
   color: var(--fg-base);
   line-height: 1.6;
   min-height: 100vh;
-  text-align: center;
-  padding-bottom: var(--gap-lg);
-}
-
-/* ----------------------------------------
-   Make all “panels” transparent
----------------------------------------- */
-.section,
-.container,
-.card,
-.modal-content,
-form {
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(8px);
+  text-align: right;
   padding: var(--gap-lg);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  margin: var(--gap-lg) auto;
-  max-width: 1000px;
-  text-align: left;
 }
 
 /* ----------------------------------------
-   Title & Header
+   Headers & Titles
 ---------------------------------------- */
 .title-container {
-  background: transparent;
-  padding-top: var(--gap-lg);
-  padding-bottom: var(--gap-sm);
+  margin-bottom: var(--gap-lg);
 }
 .title-container h1,
 .title-container h2 {
@@ -80,14 +58,12 @@ form {
    Navigation
 ---------------------------------------- */
 nav {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(8px);
-  padding: var(--gap-sm) 0;
+  margin-bottom: var(--gap-lg);
 }
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   gap: var(--gap-md);
 }
 nav a {
@@ -102,22 +78,30 @@ nav a:hover {
 }
 
 /* ----------------------------------------
-   Headings & Text
+   Section Wrappers
+---------------------------------------- */
+.section {
+  margin-bottom: var(--gap-lg);
+}
+.container {
+  margin: auto 0;
+  max-width: 1000px;
+}
+
+/* ----------------------------------------
+   Typography Samples
 ---------------------------------------- */
 h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; color: var(--accent); }
 h3, h4, h5, h6 {
   margin-bottom: var(--gap-sm);
-  color: var(--fg-base);
 }
 p, li {
   margin-bottom: var(--gap-md);
-  color: var(--fg-muted);
 }
 blockquote {
   border-left: 4px solid var(--accent);
   padding-left: var(--gap-md);
-  color: var(--fg-muted);
   font-style: italic;
 }
 
@@ -145,9 +129,7 @@ input, select, textarea {
   border: 1px solid var(--accent);
   border-radius: var(--radius);
   background: rgba(255,255,255,0.3);
-  color: var(--fg-base);
   margin-bottom: var(--gap-md);
-  transition: border-color .3s;
 }
 input:focus, select:focus, textarea:focus {
   outline: none;
@@ -165,8 +147,7 @@ table {
 th, td {
   padding: var(--gap-sm);
   border: 1px solid rgba(255,255,255,0.3);
-  color: white;
-  text-align: left;
+  text-align: right;
 }
 th {
   background: rgba(255,255,255,0.2);
@@ -175,25 +156,42 @@ pre, code {
   background: rgba(255,255,255,0.2);
   padding: var(--gap-sm);
   border-radius: var(--radius);
+  display: block;
+  margin-bottom: var(--gap-md);
   overflow-x: auto;
-  color: var(--fg-base);
 }
 
 /* ----------------------------------------
-   Cards & Grid
+   Grid & Cards
 ---------------------------------------- */
-.grid { display: grid; gap: var(--gap-md); }
+.grid {
+  display: grid;
+  gap: var(--gap-md);
+}
 .grid-2 { grid-template-columns: 1fr 1fr; }
 .grid-3 { grid-template-columns: repeat(3,1fr); }
+
+.card {
+  background: rgba(255,255,255,0.2);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: var(--gap-md);
+  text-align: right;
+}
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 10px rgba(0,0,0,0.2);
 }
 
 /* ----------------------------------------
-   Tabs & Alerts & Modal
+   Tabs, Alerts & Modal
 ---------------------------------------- */
-.tabs { display: flex; gap: var(--gap-md); margin-bottom: var(--gap-md); }
+.tabs {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--gap-md);
+  margin-bottom: var(--gap-md);
+}
 .tabs button {
   background: transparent;
   border: none;
@@ -204,17 +202,18 @@ pre, code {
   transition: color .3s, border-bottom .3s;
 }
 .tabs button.active {
-  border-bottom-color: var(--accent);
   color: var(--accent);
+  border-bottom-color: var(--accent);
 }
-.tab-content { display: none; padding-top: var(--gap-md); }
-.tab-content.active { display: block; }
+.tab-content.active {
+  display: block;
+}
 .alert {
   background: rgba(255,255,255,0.3);
-  padding: var(--gap-md);
   border-left: 4px solid var(--accent);
-  color: var(--fg-base);
+  padding: var(--gap-md);
   margin-bottom: var(--gap-md);
+  text-align: right;
 }
 .modal {
   display: none;
@@ -223,23 +222,22 @@ pre, code {
   background: rgba(0,0,0,0.5);
   align-items: center;
   justify-content: center;
-  padding: var(--gap-lg);
 }
 .modal-content {
   background: rgba(255,255,255,0.8);
   padding: var(--gap-lg);
   border-radius: var(--radius);
   max-width: 500px;
-  width: 100%;
-  text-align: left;
+  width: 90%;
+  text-align: right;
 }
 
 /* ----------------------------------------
    Footer
 ---------------------------------------- */
 footer {
-  background: rgba(255,255,255,0.1);
   color: white;
   padding: var(--gap-sm);
   font-size: 0.9rem;
+  text-align: right;
 }
