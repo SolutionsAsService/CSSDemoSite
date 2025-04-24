@@ -1,39 +1,33 @@
 /* =========================================
    Monotone Theme — High-Contrast Expansion
    ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
-  /* Base Colors */
-  --bg-page:       #2b2b2b;  /* Dark page */
-  --bg-surface:    #3a3a3a;  /* Panels/cards */
-  --fg-primary:    #ffffff;  /* Main text */
-  --fg-secondary:  #bbbbbb;  /* Subtext */
-  --border:        #444444;  /* Panel borders */
+  --bg-page:       #2b2b2b;
+  --bg-surface:    #3a3a3a;
+  --fg-primary:    #ffffff;
+  --fg-secondary:  #dddddd;
+  --border:        #555555;
 
-  /* Typography */
   --font-body:     'Lora', serif;
-  --font-heading:  'Lora', serif;
+  --font-heading:  'Playfair Display', serif;
   --fs-base:       1rem;
-  --fs-lg:         1.125rem;
-  --fs-xl:         1.5rem;
+  --fs-lg:         1.25rem;
+  --fs-xl:         2rem;
   --lh-body:       1.6;
 
-  /* Spacing */
   --gap-xs:        0.5rem;
   --gap-sm:        1rem;
   --gap-md:        1.5rem;
   --gap-lg:        2rem;
 
-  /* Radius & Shadow */
   --radius:        0.25rem;
-  --shadow:        0 2px 6px rgba(0,0,0,0.8);
+  --shadow:        0 2px 6px rgba(0, 0, 0, 0.8);
+  --shadow-md:     0 4px 12px rgba(0, 0, 0, 0.6);
   --trans:         0.3s ease;
 }
 
-/* ----------------------------------------
-   Global Reset & Base Styles
----------------------------------------- */
 *,
 *::before,
 *::after {
@@ -54,47 +48,38 @@ body {
   padding: var(--gap-lg);
 }
 
-/* ----------------------------------------
-   Header & Titles
----------------------------------------- */
-.title-container,
-header {
+/* Header & Title */
+header,
+.title-container {
   background-color: var(--bg-surface);
   padding: var(--gap-md) 0;
-  text-align: center;
   border-bottom: 2px solid var(--border);
+  text-align: center;
 }
+header h1,
 .title-container h1,
-header h1 {
+header h2,
+.title-container h2 {
   font-family: var(--font-heading);
-  font-size: var(--fs-xl);
   color: var(--fg-primary);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
   margin-bottom: var(--gap-sm);
 }
-.title-container h2,
-header h2 {
-  font-family: var(--font-heading);
-  font-size: var(--fs-lg);
-  color: var(--fg-secondary);
-  margin-bottom: var(--gap-sm);
-}
+.title-container h1 { font-size: var(--fs-xl); }
+.title-container h2 { font-size: var(--fs-lg); }
 
-/* ----------------------------------------
-   Navigation
----------------------------------------- */
+/* Navigation */
 nav {
   background-color: var(--bg-surface);
-  padding: var(--gap-sm) 0;
+  padding: var(--gap-sm);
   margin-bottom: var(--gap-lg);
   border-bottom: 1px solid var(--border);
 }
 nav ul {
   display: flex;
   justify-content: center;
-  gap: var(--gap-md);
   list-style: none;
+  gap: var(--gap-md);
 }
 nav a {
   font-family: var(--font-heading);
@@ -108,63 +93,47 @@ nav a:hover {
   background-color: var(--border);
 }
 
-/* ----------------------------------------
-   Typography & Lists
----------------------------------------- */
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
-
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--fg-primary);
+  margin-bottom: var(--gap-sm);
+}
 p, li {
-  margin-bottom: var(--gap-md);
   color: var(--fg-secondary);
+  margin-bottom: var(--gap-md);
 }
 blockquote {
   border-left: 4px solid var(--border);
   padding-left: var(--gap-md);
-  font-style: italic;
   color: var(--fg-secondary);
+  font-style: italic;
   margin: var(--gap-md) 0;
 }
 
-/* ----------------------------------------
-   Buttons
----------------------------------------- */
-.btn, .button {
-  display: inline-block;
+/* Buttons */
+button, .btn {
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: bold;
   background-color: var(--bg-surface);
   color: var(--fg-primary);
   border: 1px solid var(--border);
   padding: var(--gap-sm) var(--gap-md);
   border-radius: var(--radius);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: background-color var(--trans), transform .2s;
   box-shadow: var(--shadow);
   cursor: pointer;
+  transition: background-color var(--trans), transform .2s;
 }
-.btn:hover, .button:hover {
+button:hover, .btn:hover {
   background-color: var(--border);
   transform: translateY(-2px);
 }
-.btn:active, .button:active {
+button:active, .btn:active {
   transform: translateY(0);
 }
 
-/* ----------------------------------------
-   Form Controls
----------------------------------------- */
-.form-group { margin-bottom: var(--gap-md); }
-label {
-  display: block;
-  margin-bottom: var(--gap-xs);
-  color: var(--fg-secondary);
-}
+/* Forms */
 input, textarea, select {
   width: 100%;
   max-width: 400px;
@@ -173,40 +142,26 @@ input, textarea, select {
   color: var(--fg-primary);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: border-color var(--trans);
   margin-bottom: var(--gap-md);
 }
 input:focus, textarea:focus, select:focus {
-  outline: none;
   border-color: var(--fg-secondary);
+  outline: none;
 }
-
-/* Styled dropdown arrow */
-.select-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-}
-.select-wrapper select {
-  appearance: none;
-  padding-right: var(--gap-lg);
-}
-.select-wrapper::after {
-  content: "▼";
-  position: absolute;
-  top: 50%;
-  right: var(--gap-sm);
-  transform: translateY(-50%);
+label {
+  display: block;
+  margin-bottom: var(--gap-xs);
   color: var(--fg-secondary);
-  pointer-events: none;
 }
 
-/* ----------------------------------------
-   Cards & Grid
----------------------------------------- */
-.grid { display: grid; gap: var(--gap-lg); }
-.grid-2 { grid-template-columns: 1fr 1fr; }
-.grid-3 { grid-template-columns: repeat(3,1fr); }
+/* Cards & Grid */
+.grid {
+  display: grid;
+  gap: var(--gap-lg);
+}
+.grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
 .card {
   background-color: var(--bg-surface);
   padding: var(--gap-md);
@@ -214,16 +169,13 @@ input:focus, textarea:focus, select:focus {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   transition: transform var(--trans), box-shadow var(--trans);
-  text-align: left;
 }
 .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
 }
 
-/* ----------------------------------------
-   Tables & Code
----------------------------------------- */
+/* Tables & Code */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -232,14 +184,9 @@ table {
 th, td {
   padding: var(--gap-sm);
   border: 1px solid var(--border);
-  text-align: left;
   color: var(--fg-primary);
 }
-th {
-  background-color: var(--bg-surface);
-}
 pre, code {
-  display: block;
   background-color: var(--bg-surface);
   padding: var(--gap-sm);
   border-radius: var(--radius);
@@ -247,55 +194,26 @@ pre, code {
   margin-bottom: var(--gap-md);
 }
 
-/* ----------------------------------------
-   Alerts & Tabs
----------------------------------------- */
+/* Alerts */
 .alert {
   padding: var(--gap-sm) var(--gap-md);
-  border-radius: var(--radius);
-  margin-bottom: var(--gap-md);
-  font-weight: 700;
-  background-color: var(--bg-surface);
   border-left: 4px solid var(--border);
+  background-color: var(--bg-surface);
   color: var(--fg-primary);
+  border-radius: var(--radius);
+  font-weight: bold;
 }
 .alert.success { border-color: #28a745; }
 .alert.error   { border-color: #dc3545; }
 
-.tabs {
-  display: flex;
-  gap: var(--gap-sm);
-  border-bottom: 1px solid var(--border);
-  margin-bottom: var(--gap-md);
-}
-.tabs button {
-  background: none;
-  border: none;
-  padding: var(--gap-sm) var(--gap-md);
-  font-family: var(--font-heading);
-  color: var(--fg-secondary);
-  cursor: pointer;
-  transition: color var(--trans), border-bottom var(--trans);
-  border-bottom: 2px solid transparent;
-}
-.tabs button.active {
-  color: var(--fg-primary);
-  border-bottom-color: var(--fg-primary);
-}
-.tab-content { display: none; }
-.tab-content.active { display: block; }
-
-/* ----------------------------------------
-   Modal
----------------------------------------- */
+/* Modal */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   align-items: center;
   justify-content: center;
-  padding: var(--gap-lg);
 }
 .modal.active {
   display: flex;
@@ -305,22 +223,13 @@ pre, code {
   padding: var(--gap-lg);
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
+  color: var(--fg-primary);
   max-width: 500px;
   width: 100%;
   text-align: center;
 }
-.modal-close {
-  position: absolute;
-  top: var(--gap-sm);
-  right: var(--gap-sm);
-  font-size: 1.25rem;
-  cursor: pointer;
-  color: var(--fg-secondary);
-}
 
-/* ----------------------------------------
-   Footer
----------------------------------------- */
+/* Footer */
 footer {
   background-color: var(--bg-surface);
   color: var(--fg-secondary);
@@ -330,11 +239,9 @@ footer {
   border-top: 2px solid var(--border);
 }
 
-/* ----------------------------------------
-   Responsive
----------------------------------------- */
+/* Responsive */
 @media (max-width: 768px) {
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
   nav ul { flex-wrap: wrap; }
-  .btn, .button { width: 100%; }
+  .btn { width: 100%; }
 }
