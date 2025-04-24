@@ -1,16 +1,15 @@
-/* ===================================================
-   Monotone Theme — Revamped & Comprehensive
-   =================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* =========================================
+   Monotone Theme — High-Contrast Expansion
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
 
 :root {
   /* Base Colors */
-  --bg-page:       #1f1f1f;    /* darker page bg for less glare */
-  --bg-surface:    #2b2b2b;    /* slightly lighter panels */
-  --fg-primary:    #e0e0e0;    /* main text */
-  --fg-secondary:  #b0b0b0;    /* muted text */
-  --accent:        #c0c0c0;    /* for links/buttons highlight */
-  --border:        #3a3a3a;    /* subtle panel borders */
+  --bg-page:       #2b2b2b;  /* Dark page */
+  --bg-surface:    #3a3a3a;  /* Panels/cards */
+  --fg-primary:    #ffffff;  /* Main text */
+  --fg-secondary:  #bbbbbb;  /* Subtext */
+  --border:        #444444;  /* Panel borders */
 
   /* Typography */
   --font-body:     'Lora', serif;
@@ -26,12 +25,9 @@
   --gap-md:        1.5rem;
   --gap-lg:        2rem;
 
-  /* Radii & Shadows */
+  /* Radius & Shadow */
   --radius:        0.25rem;
-  --shadow-sm:     0 2px 6px rgba(0,0,0,0.7);
-  --shadow-md:     0 4px 12px rgba(0,0,0,0.7);
-
-  /* Transition */
+  --shadow:        0 2px 6px rgba(0,0,0,0.8);
   --trans:         0.3s ease;
 }
 
@@ -59,7 +55,7 @@ body {
 }
 
 /* ----------------------------------------
-   Header & Title Container
+   Header & Titles
 ---------------------------------------- */
 .title-container,
 header {
@@ -69,19 +65,24 @@ header {
   border-bottom: 2px solid var(--border);
 }
 .title-container h1,
-header h1,
-.title-container h2,
-header h2 {
+header h1 {
   font-family: var(--font-heading);
-  color: var(--fg-primary);
   font-size: var(--fs-xl);
+  color: var(--fg-primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: var(--gap-sm);
 }
+.title-container h2,
+header h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  color: var(--fg-secondary);
+  margin-bottom: var(--gap-sm);
+}
 
 /* ----------------------------------------
-   Navigation Bar
+   Navigation
 ---------------------------------------- */
 nav {
   background-color: var(--bg-surface);
@@ -90,10 +91,10 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 nav ul {
-  list-style: none;
   display: flex;
   justify-content: center;
   gap: var(--gap-md);
+  list-style: none;
 }
 nav a {
   font-family: var(--font-heading);
@@ -101,14 +102,14 @@ nav a {
   text-decoration: none;
   padding: var(--gap-xs) var(--gap-sm);
   border-radius: var(--radius);
-  transition: background-color var(--trans), color var(--trans);
+  transition: background-color var(--trans);
 }
 nav a:hover {
   background-color: var(--border);
 }
 
 /* ----------------------------------------
-   Typography Elements
+   Typography & Lists
 ---------------------------------------- */
 h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; }
@@ -116,6 +117,7 @@ h3 { font-size: 1.75rem; }
 h4 { font-size: 1.5rem; }
 h5 { font-size: 1.25rem; }
 h6 { font-size: 1rem; }
+
 p, li {
   margin-bottom: var(--gap-md);
   color: var(--fg-secondary);
@@ -123,8 +125,8 @@ p, li {
 blockquote {
   border-left: 4px solid var(--border);
   padding-left: var(--gap-md);
-  color: var(--fg-secondary);
   font-style: italic;
+  color: var(--fg-secondary);
   margin: var(--gap-md) 0;
 }
 
@@ -135,19 +137,19 @@ blockquote {
   display: inline-block;
   font-family: var(--font-heading);
   font-weight: 700;
-  background: var(--bg-surface);
+  background-color: var(--bg-surface);
   color: var(--fg-primary);
   border: 1px solid var(--border);
   padding: var(--gap-sm) var(--gap-md);
   border-radius: var(--radius);
   text-transform: uppercase;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   transition: background-color var(--trans), transform .2s;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow);
   cursor: pointer;
 }
 .btn:hover, .button:hover {
-  background: var(--border);
+  background-color: var(--border);
   transform: translateY(-2px);
 }
 .btn:active, .button:active {
@@ -167,11 +169,12 @@ input, textarea, select {
   width: 100%;
   max-width: 400px;
   padding: var(--gap-sm);
-  background: var(--bg-surface);
+  background-color: var(--bg-surface);
   color: var(--fg-primary);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   transition: border-color var(--trans);
+  margin-bottom: var(--gap-md);
 }
 input:focus, textarea:focus, select:focus {
   outline: none;
@@ -181,7 +184,6 @@ input:focus, textarea:focus, select:focus {
 /* Styled dropdown arrow */
 .select-wrapper {
   position: relative;
-  display: inline-block;
   width: 100%;
   max-width: 400px;
 }
@@ -200,17 +202,17 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* ----------------------------------------
-   Cards & Grid Utilities
+   Cards & Grid
 ---------------------------------------- */
 .grid { display: grid; gap: var(--gap-lg); }
 .grid-2 { grid-template-columns: 1fr 1fr; }
 .grid-3 { grid-template-columns: repeat(3,1fr); }
 .card {
-  background: var(--bg-surface);
+  background-color: var(--bg-surface);
   padding: var(--gap-md);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow);
   transition: transform var(--trans), box-shadow var(--trans);
   text-align: left;
 }
@@ -234,11 +236,11 @@ th, td {
   color: var(--fg-primary);
 }
 th {
-  background: var(--bg-surface);
+  background-color: var(--bg-surface);
 }
 pre, code {
   display: block;
-  background: var(--bg-surface);
+  background-color: var(--bg-surface);
   padding: var(--gap-sm);
   border-radius: var(--radius);
   overflow-x: auto;
@@ -253,7 +255,7 @@ pre, code {
   border-radius: var(--radius);
   margin-bottom: var(--gap-md);
   font-weight: 700;
-  background: var(--bg-surface);
+  background-color: var(--bg-surface);
   border-left: 4px solid var(--border);
   color: var(--fg-primary);
 }
@@ -299,7 +301,7 @@ pre, code {
   display: flex;
 }
 .modal-content {
-  background: var(--bg-surface);
+  background-color: var(--bg-surface);
   padding: var(--gap-lg);
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
@@ -320,7 +322,7 @@ pre, code {
    Footer
 ---------------------------------------- */
 footer {
-  background: var(--bg-surface);
+  background-color: var(--bg-surface);
   color: var(--fg-secondary);
   text-align: center;
   padding: var(--gap-lg);
