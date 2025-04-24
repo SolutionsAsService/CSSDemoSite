@@ -1,41 +1,30 @@
 /* ========================================
-   Light Purple Gradient Theme
+   Light Purple Gradient Theme – Unified
    ======================================== */
 @import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:wght@400;600&display=swap');
 
-/* ----------------------------------------
-   CSS Variables
----------------------------------------- */
 :root {
-  /* Palette */
-  --bg-page:       linear-gradient(to bottom right, #e0c3fc, #8ec5fc);
-  --bg-section:    rgba(255, 255, 255, 0.8);
-  --bg-card:       #ffffff;
+  /* Gradient colors */
+  --gradient-start: #e0c3fc;
+  --gradient-end:   #8ec5fc;
+
+  /* Text & accents */
   --fg-base:       #1a202c;
   --fg-muted:      #4a5568;
-  --accent1:       #d4a5ff;
-  --accent2:       #b19cd9;
-  --border:        #dcd6f7;
+  --accent:        #b19cd9;
 
-  /* Typography */
-  --font-sans:     'Cascadia Code', monospace;
-  --fs-base:       1rem;
-  --fs-lg:         1.125rem;
-  --fs-xl:         1.5rem;
-  --lh-base:       1.6;
-
-  /* Spacing & layout */
-  --gap-xs:        0.5rem;
+  /* Spacing & sizing */
   --gap-sm:        1rem;
   --gap-md:        1.5rem;
   --gap-lg:        2rem;
   --radius:        0.75rem;
+
+  /* Shadows */
   --shadow-sm:     0 1px 3px rgba(0,0,0,0.1);
-  --shadow-md:     0 4px 6px rgba(0,0,0,0.1);
 }
 
 /* ----------------------------------------
-   Global Reset & Base
+   Global Reset & Body
 ---------------------------------------- */
 *,
 *::before,
@@ -45,77 +34,78 @@
   padding: 0;
 }
 body {
-  font-family: var(--font-sans);
-  font-size: var(--fs-base);
-  line-height: var(--lh-base);
+  font-family: 'Cascadia Code', monospace;
+  background: linear-gradient(to bottom right, var(--gradient-start), var(--gradient-end));
   color: var(--fg-base);
-  background: var(--bg-page);
-  text-align: center;
+  line-height: 1.6;
   min-height: 100vh;
+  text-align: center;
+  padding-bottom: var(--gap-lg);
 }
 
 /* ----------------------------------------
-   Title Container & Header
+   Make all “panels” transparent
+---------------------------------------- */
+.section,
+.container,
+.card,
+.modal-content,
+form {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  padding: var(--gap-lg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--gap-lg) auto;
+  max-width: 1000px;
+  text-align: left;
+}
+
+/* ----------------------------------------
+   Title & Header
 ---------------------------------------- */
 .title-container {
-  background: var(--accent1);
-  background: linear-gradient(45deg, var(--accent1), var(--accent2));
-  padding: var(--gap-lg);
-  border-radius: 0 0 var(--radius) var(--radius);
-  box-shadow: var(--shadow-md);
+  background: transparent;
+  padding-top: var(--gap-lg);
+  padding-bottom: var(--gap-sm);
 }
 .title-container h1,
 .title-container h2 {
-  font-size: var(--fs-xl);
   color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
   margin-bottom: var(--gap-sm);
 }
 
 /* ----------------------------------------
-   Navigation Bar
+   Navigation
 ---------------------------------------- */
 nav {
-  background: var(--accent2);
-  box-shadow: var(--shadow-sm);
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  padding: var(--gap-sm) 0;
 }
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
   gap: var(--gap-md);
-  padding: var(--gap-sm) 0;
 }
-nav ul li a {
-  position: relative;
+nav a {
   color: white;
   font-weight: 600;
-  padding: var(--gap-xs) var(--gap-sm);
-  transition: background-color .3s;
+  padding: var(--gap-sm);
   border-radius: var(--radius);
+  transition: background .3s;
 }
-nav ul li a:hover {
+nav a:hover {
   background: rgba(255,255,255,0.2);
 }
 
 /* ----------------------------------------
-   Section Container
+   Headings & Text
 ---------------------------------------- */
-.section {
-  padding: var(--gap-lg) 0;
-  background: var(--bg-section);
-}
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: auto;
-  text-align: left;
-}
-
-/* ----------------------------------------
-   Typography Samples
----------------------------------------- */
-h1 { font-size: 2.5rem; color: var(--accent2); }
-h2 { font-size: 2rem; color: var(--accent1); }
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; color: var(--accent); }
 h3, h4, h5, h6 {
   margin-bottom: var(--gap-sm);
   color: var(--fg-base);
@@ -125,84 +115,43 @@ p, li {
   color: var(--fg-muted);
 }
 blockquote {
-  border-left: 4px solid var(--accent1);
+  border-left: 4px solid var(--accent);
   padding-left: var(--gap-md);
-  font-style: italic;
   color: var(--fg-muted);
+  font-style: italic;
 }
 
 /* ----------------------------------------
-   Buttons & Badges
+   Buttons & Forms
 ---------------------------------------- */
 button, .btn {
-  font-family: var(--font-sans);
-  font-size: var(--fs-base);
-  background: var(--accent1);
+  background: var(--accent);
   color: white;
   border: none;
   padding: var(--gap-sm) var(--gap-lg);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
-  transition: background .3s, transform .2s, box-shadow .3s;
+  cursor: pointer;
+  transition: background .3s, transform .2s;
 }
 button:hover, .btn:hover {
-  background: var(--accent2);
+  background: white;
+  color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
 }
-.badge {
-  display: inline-block;
-  background: var(--accent2);
-  color: white;
-  padding: var(--gap-xs) var(--gap-sm);
-  border-radius: var(--radius);
-  font-size: 0.875rem;
-  margin-right: var(--gap-xs);
-}
-
-/* ----------------------------------------
-   Form Elements
----------------------------------------- */
-.form-group { margin-bottom: var(--gap-md); }
-label {
-  display: block;
-  margin-bottom: var(--gap-xs);
-  font-weight: 500;
-  color: var(--fg-base);
-}
-input[type="text"],
-input[type="email"],
-select,
-textarea {
+input, select, textarea {
   width: 100%;
   padding: var(--gap-sm);
-  border: 2px solid var(--accent1);
+  border: 1px solid var(--accent);
   border-radius: var(--radius);
-  font-size: var(--fs-base);
-  transition: border-color .3s, box-shadow .3s;
-  background: white;
+  background: rgba(255,255,255,0.3);
   color: var(--fg-base);
+  margin-bottom: var(--gap-md);
+  transition: border-color .3s;
 }
-input:focus,
-select:focus,
-textarea:focus {
+input:focus, select:focus, textarea:focus {
   outline: none;
-  border-color: var(--accent2);
-  box-shadow: var(--shadow-md);
-}
-textarea { resize: vertical; }
-input[type="checkbox"], input[type="radio"] {
-  accent-color: var(--accent1);
-  margin-right: var(--gap-xs);
-}
-
-/* Styled dropdown arrow */
-select {
-  appearance: none;
-  background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6' stroke='%23d4a5ff' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right var(--gap-sm) center;
+  border-color: white;
 }
 
 /* ----------------------------------------
@@ -215,21 +164,19 @@ table {
 }
 th, td {
   padding: var(--gap-sm);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
   text-align: left;
 }
 th {
-  background: var(--accent1);
-  color: white;
+  background: rgba(255,255,255,0.2);
 }
 pre, code {
-  background: var(--bg-card);
-  padding: var(--gap-xs);
+  background: rgba(255,255,255,0.2);
+  padding: var(--gap-sm);
   border-radius: var(--radius);
-  font-family: var(--font-sans);
   overflow-x: auto;
-  display: block;
-  margin-bottom: var(--gap-md);
+  color: var(--fg-base);
 }
 
 /* ----------------------------------------
@@ -238,101 +185,61 @@ pre, code {
 .grid { display: grid; gap: var(--gap-md); }
 .grid-2 { grid-template-columns: 1fr 1fr; }
 .grid-3 { grid-template-columns: repeat(3,1fr); }
-
-.card {
-  background: var(--bg-card);
-  padding: var(--gap-md);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  transition: transform .2s, box-shadow .3s;
-  text-align: left;
-}
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
 }
 
 /* ----------------------------------------
-   Tabs
+   Tabs & Alerts & Modal
 ---------------------------------------- */
-.tabs {
-  display: flex;
-  border-bottom: 2px solid var(--border);
-  margin-bottom: var(--gap-md);
-}
+.tabs { display: flex; gap: var(--gap-md); margin-bottom: var(--gap-md); }
 .tabs button {
-  background: none;
+  background: transparent;
   border: none;
   padding: var(--gap-sm) var(--gap-md);
-  font-size: var(--fs-base);
+  color: white;
   cursor: pointer;
+  border-bottom: 2px solid transparent;
   transition: color .3s, border-bottom .3s;
-  color: var(--fg-muted);
-  border-bottom: 3px solid transparent;
 }
 .tabs button.active {
-  color: var(--accent1);
-  border-bottom-color: var(--accent1);
+  border-bottom-color: var(--accent);
+  color: var(--accent);
 }
-.tab-content {
-  display: none;
-  padding: var(--gap-md) 0;
-}
-.tab-content.active {
-  display: block;
-}
-
-/* ----------------------------------------
-   Alerts
----------------------------------------- */
+.tab-content { display: none; padding-top: var(--gap-md); }
+.tab-content.active { display: block; }
 .alert {
-  background: #fff3cd;
-  color: #856404;
+  background: rgba(255,255,255,0.3);
   padding: var(--gap-md);
-  border-radius: var(--radius);
+  border-left: 4px solid var(--accent);
+  color: var(--fg-base);
   margin-bottom: var(--gap-md);
-  text-align: left;
 }
-
-/* ----------------------------------------
-   Modal
----------------------------------------- */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.5);
   align-items: center;
   justify-content: center;
-  padding: var(--gap-md);
+  padding: var(--gap-lg);
 }
 .modal-content {
-  background: var(--bg-card);
-  padding: var(--gap-md);
+  background: rgba(255,255,255,0.8);
+  padding: var(--gap-lg);
   border-radius: var(--radius);
-  max-width: 450px;
+  max-width: 500px;
   width: 100%;
-  position: relative;
-  box-shadow: var(--shadow-md);
-}
-.modal .close {
-  position: absolute;
-  top: var(--gap-xs);
-  right: var(--gap-xs);
-  background: none;
-  border: none;
-  font-size: 1.25rem;
-  cursor: pointer;
-  color: var(--fg-muted);
+  text-align: left;
 }
 
 /* ----------------------------------------
    Footer
 ---------------------------------------- */
 footer {
-  background: var(--accent2);
+  background: rgba(255,255,255,0.1);
   color: white;
-  text-align: center;
-  padding: var(--gap-lg) 0;
-  font-size: 0.875rem;
+  padding: var(--gap-sm);
+  font-size: 0.9rem;
 }
