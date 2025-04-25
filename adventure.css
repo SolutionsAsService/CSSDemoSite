@@ -1,5 +1,5 @@
 /* ===================================================
-   Adventure/Explorer Theme — Wilderness Edition v2
+   Adventure/Explorer Theme — Wilderness Edition v3
    =================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
@@ -60,7 +60,7 @@ body {
 }
 
 /* -------------------------
-   Layout Container
+   Container Utility
 ------------------------- */
 .container {
   width: 90%;
@@ -75,7 +75,7 @@ body {
 ------------------------- */
 header,
 .title-container {
-  background: linear-gradient(90deg, var(--terracotta), var(--earth));
+  background: linear-gradient(90deg, var(--earth), var(--terracotta));
   color: var(--text-light);
   padding: var(--gap-lg) 0;
   box-shadow: var(--shadow-light);
@@ -153,39 +153,29 @@ blockquote {
 }
 
 /* -------------------------
-   Buttons
+   Unified Buttons
 ------------------------- */
-.btn-primary {
+.button,
+.btn {
   display: inline-block;
   font-family: var(--font-heading);
+  font-size: var(--fs-base);
+  text-transform: uppercase;
+  padding: var(--gap-sm) var(--gap-md);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--trans), transform .2s, box-shadow var(--trans);
+  /* unified terracotta buttons */
   background: var(--terracotta);
   color: var(--text-light);
-  border: none;
-  padding: var(--gap-sm) var(--gap-lg);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-strong);
-  text-transform: uppercase;
-  transition: background var(--trans), transform .2s;
-}
-.btn-primary:hover {
-  background: var(--earth);
-  transform: translateY(-3px);
-}
-.btn-secondary {
-  display: inline-block;
-  font-family: var(--font-body);
-  background: transparent;
-  color: var(--earth);
   border: 2px solid var(--earth);
-  padding: var(--gap-sm) var(--gap-lg);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-light);
-  transition: background var(--trans), color var(--trans), transform .2s;
+  box-shadow: var(--shadow-strong);
 }
-.btn-secondary:hover {
+.button:hover,
+.btn:hover {
   background: var(--earth);
-  color: var(--text-light);
   transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
 }
 
 /* -------------------------
@@ -193,8 +183,9 @@ blockquote {
 ------------------------- */
 label {
   display: block;
-  margin-bottom: var(--gap-xs);
+  margin-bottom: var(--gap-sm);
   font-weight: 500;
+  color: var(--text-dark);
 }
 input, textarea, select {
   width: 100%; max-width: 400px;
@@ -309,5 +300,5 @@ footer a:hover {
 @media (max-width: 768px) {
   nav ul { flex-wrap: wrap; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
-  .btn-primary, .btn-secondary { width: 100%; }
+  .button, .btn { width: 100%; }
 }
