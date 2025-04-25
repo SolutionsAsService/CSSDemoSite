@@ -1,19 +1,19 @@
 /* ===================================================
-   Adventure/Explorer Theme — Wilderness Edition
+   Adventure/Explorer Theme — Wilderness Edition v2
    =================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 :root {
-  /* Color Palette */
-  --bg-page:        #ffe29f;  /* sand */
-  --bg-panel:       #f0d5a7;  /* light tan */
-  --bg-accent:      #c97d60;  /* terracotta */
-  --bg-dark:        #8c4a3a;  /* deep earth */
+  /* Palette */
+  --sand:           #ffe29f;
+  --tan:            #f0d5a7;
+  --terracotta:     #c97d60;
+  --earth:          #8c4a3a;
 
-  --text-primary:   #2f241d;  /* dark oak */
-  --text-secondary: #5a4030;  /* muted bark */
-  --text-accent:    #fff7e6;  /* parchment */
+  --text-dark:      #2f241d;
+  --text-mid:       #5a4030;
+  --text-light:     #fff7e6;
 
   /* Typography */
   --font-heading:   'Cinzel', serif;
@@ -21,24 +21,23 @@
   --fs-base:        1rem;     /* 16px */
   --fs-lg:          1.125rem; /* 18px */
   --fs-xl:          1.5rem;   /* 24px */
-  --lh:             1.6;
+  --lh-body:        1.75;
 
   /* Spacing */
-  --gap-xs:         0.25rem;
   --gap-sm:         0.5rem;
   --gap-md:         1rem;
   --gap-lg:         1.5rem;
   --gap-xl:         2rem;
   --radius:         0.5rem;
 
-  /* Shadows & Transitions */
-  --shadow-sm:      0 2px 6px rgba(0,0,0,0.15);
-  --shadow-md:      0 4px 12px rgba(0,0,0,0.2);
+  /* Shadows & transitions */
+  --shadow-light:   0 2px 6px rgba(0,0,0,0.15);
+  --shadow-strong:  0 4px 12px rgba(0,0,0,0.2);
   --trans:          0.3s ease;
 }
 
 /* -------------------------
-   Reset & Base Styles
+   Reset & Base
 ------------------------- */
 *,
 *::before,
@@ -47,37 +46,39 @@
   box-sizing: border-box;
 }
 html {
-  font-size: 16px; scroll-behavior: smooth;
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 body {
   font-family: var(--font-body);
   font-size: var(--fs-base);
-  line-height: var(--lh);
-  background: var(--bg-page);
-  color: var(--text-primary);
-  min-height: 100vh;
+  line-height: var(--lh-body);
+  background: var(--sand);
+  color: var(--text-dark);
   text-align: center;
+  min-height: 100vh;
 }
 
 /* -------------------------
-   Container Utility
+   Layout Container
 ------------------------- */
 .container {
-  width: 90%; max-width: 1200px;
+  width: 90%;
+  max-width: 1200px;
   margin: var(--gap-xl) auto;
   padding: 0 var(--gap-md);
   text-align: left;
 }
 
 /* -------------------------
-   Header & Title Row
+   Header & Title Strip
 ------------------------- */
 header,
 .title-container {
-  background: linear-gradient(90deg, var(--bg-accent), var(--bg-dark));
-  color: var(--text-accent);
+  background: linear-gradient(90deg, var(--terracotta), var(--earth));
+  color: var(--text-light);
   padding: var(--gap-lg) 0;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-light);
 }
 .title-container {
   display: flex;
@@ -100,30 +101,31 @@ header h2 {
 }
 
 /* -------------------------
-   Navigation Bar
+   Navigation
 ------------------------- */
 nav {
-  background: var(--bg-dark);
-  padding: var(--gap-sm) 0;
-  box-shadow: var(--shadow-sm);
+  background: var(--earth);
+  padding: var(--gap-md) 0;
+  box-shadow: var(--shadow-light);
 }
 nav ul {
   list-style: none;
-  display: flex; justify-content: center;
-  gap: var(--gap-md);
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-lg);
 }
 nav a {
   font-family: var(--font-body);
-  color: var(--text-accent);
+  color: var(--text-light);
   text-decoration: none;
   font-weight: 500;
-  padding: var(--gap-xs) var(--gap-sm);
+  padding: var(--gap-sm) var(--gap-md);
   border-radius: var(--radius);
   transition: background-color var(--trans), color var(--trans);
 }
 nav a:hover {
-  background: var(--bg-accent);
-  color: var(--bg-page);
+  background: var(--sand);
+  color: var(--earth);
 }
 
 /* -------------------------
@@ -131,58 +133,63 @@ nav a:hover {
 ------------------------- */
 h1,h2,h3,h4,h5,h6 {
   font-family: var(--font-heading);
-  color: var(--bg-dark);
-  margin: var(--gap-md) 0 var(--gap-sm);
+  color: var(--earth);
+  margin: var(--gap-lg) 0 var(--gap-md);
 }
 h3 { font-size: 1.75rem; }
 h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
 p, li {
-  color: var(--text-secondary);
+  color: var(--text-mid);
   margin-bottom: var(--gap-md);
 }
 blockquote {
-  border-left: 4px solid var(--bg-accent);
+  border-left: 4px solid var(--terracotta);
   padding-left: var(--gap-md);
   font-style: italic;
-  color: var(--text-secondary);
-  margin: var(--gap-md) 0;
+  color: var(--text-mid);
+  margin: var(--gap-lg) 0;
 }
 
 /* -------------------------
-   Buttons & CTAs
+   Buttons
 ------------------------- */
-.button, .btn {
+.btn-primary {
+  display: inline-block;
   font-family: var(--font-heading);
-  font-size: var(--fs-base);
-  text-transform: uppercase;
-  padding: var(--gap-sm) var(--gap-md);
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: background var(--trans), transform .2s, box-shadow var(--trans);
-}
-.button {
-  background: var(--bg-accent);
-  color: var(--text-accent);
+  background: var(--terracotta);
+  color: var(--text-light);
   border: none;
-  box-shadow: var(--shadow-md);
+  padding: var(--gap-sm) var(--gap-lg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-strong);
+  text-transform: uppercase;
+  transition: background var(--trans), transform .2s;
 }
-.button:hover {
-  background: var(--bg-dark);
+.btn-primary:hover {
+  background: var(--earth);
   transform: translateY(-3px);
 }
-.btn {
+.btn-secondary {
+  display: inline-block;
+  font-family: var(--font-body);
   background: transparent;
-  color: var(--bg-dark);
-  border: 2px solid var(--bg-dark);
+  color: var(--earth);
+  border: 2px solid var(--earth);
+  padding: var(--gap-sm) var(--gap-lg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-light);
+  transition: background var(--trans), color var(--trans), transform .2s;
 }
-.btn:hover {
-  background: var(--bg-dark);
-  color: var(--text-accent);
+.btn-secondary:hover {
+  background: var(--earth);
+  color: var(--text-light);
   transform: translateY(-3px);
 }
 
 /* -------------------------
-   Form Elements
+   Form Controls
 ------------------------- */
 label {
   display: block;
@@ -193,16 +200,16 @@ input, textarea, select {
   width: 100%; max-width: 400px;
   padding: var(--gap-sm);
   margin-bottom: var(--gap-md);
-  border: 1px solid var(--bg-accent);
+  border: 1px solid var(--terracotta);
   border-radius: var(--radius);
-  background: var(--bg-panel);
-  color: var(--bg-dark);
-  transition: border-color var(--trans);
+  background: var(--tan);
+  color: var(--earth);
+  transition: border-color var(--trans), box-shadow var(--trans);
 }
 input:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: var(--bg-dark);
-  box-shadow: var(--shadow-sm);
+  border-color: var(--earth);
+  box-shadow: var(--shadow-light);
 }
 
 /* -------------------------
@@ -213,46 +220,48 @@ table {
   margin: var(--gap-lg) 0;
 }
 th, td {
-  padding: var(--gap-sm);
-  border: 1px solid var(--bg-dark);
+  padding: var(--gap-md);
+  border: 1px solid var(--earth);
 }
 th {
-  background: var(--bg-panel);
-  color: var(--bg-dark);
+  background: var(--tan);
+  color: var(--earth);
 }
 
 /* -------------------------
    Lists
 ------------------------- */
 ul, ol {
-  margin: var(--gap-md) 0; padding-left: 1.5rem;
+  margin: var(--gap-md) 0;
+  padding-left: 1.5rem;
 }
 li {
   margin-bottom: var(--gap-sm);
 }
 
 /* -------------------------
-   Cards & Grid Layouts
+   Cards & Grid
 ------------------------- */
 .grid {
-  display: grid; gap: var(--gap-lg);
+  display: grid;
+  gap: var(--gap-lg);
 }
 .grid-2 { grid-template-columns: repeat(2,1fr); }
 .grid-3 { grid-template-columns: repeat(3,1fr); }
 .card {
-  background: var(--bg-panel);
+  background: var(--tan);
   padding: var(--gap-md);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-light);
   transition: transform var(--trans), box-shadow var(--trans);
 }
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-strong);
 }
 
 /* -------------------------
-   Modals
+   Modal
 ------------------------- */
 .modal {
   position: fixed; inset: 0;
@@ -266,15 +275,15 @@ li {
   padding: var(--gap-lg);
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
-  max-width: 500px; width: 100%;
-  color: var(--bg-dark);
+  max-width: 500px; width:100%;
+  color: var(--earth);
   position: relative;
 }
 .modal-close {
   position: absolute; top: var(--gap-sm); right: var(--gap-sm);
   background: none; border: none;
   font-size: 1.25rem; cursor: pointer;
-  color: var(--bg-dark);
+  color: var(--earth);
 }
 
 /* -------------------------
@@ -282,16 +291,16 @@ li {
 ------------------------- */
 footer {
   background: linear-gradient(to right, #8c4a3a, #5a2b1f);
-  padding: var(--gap-md) 0;
-  color: var(--text-accent);
-  text-shadow: 1px 1px 4px var(--bg-dark);
+  padding: var(--gap-lg) 0;
+  color: var(--text-light);
+  text-shadow: 1px 1px 4px var(--earth);
 }
 footer a {
-  color: var(--text-accent);
+  color: var(--text-light);
   text-decoration: underline;
 }
 footer a:hover {
-  color: var(--bg-dark);
+  color: var(--earth);
 }
 
 /* -------------------------
@@ -300,5 +309,5 @@ footer a:hover {
 @media (max-width: 768px) {
   nav ul { flex-wrap: wrap; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
-  .button, .btn { width: 100%; }
+  .btn-primary, .btn-secondary { width: 100%; }
 }
