@@ -1,114 +1,304 @@
-/* Adventure/Explorer Theme */
+/* ===================================================
+   Adventure/Explorer Theme — Wilderness Edition
+   =================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
+:root {
+  /* Color Palette */
+  --bg-page:        #ffe29f;  /* sand */
+  --bg-panel:       #f0d5a7;  /* light tan */
+  --bg-accent:      #c97d60;  /* terracotta */
+  --bg-dark:        #8c4a3a;  /* deep earth */
+
+  --text-primary:   #2f241d;  /* dark oak */
+  --text-secondary: #5a4030;  /* muted bark */
+  --text-accent:    #fff7e6;  /* parchment */
+
+  /* Typography */
+  --font-heading:   'Cinzel', serif;
+  --font-body:      'Roboto', sans-serif;
+  --fs-base:        1rem;     /* 16px */
+  --fs-lg:          1.125rem; /* 18px */
+  --fs-xl:          1.5rem;   /* 24px */
+  --lh:             1.6;
+
+  /* Spacing */
+  --gap-xs:         0.25rem;
+  --gap-sm:         0.5rem;
+  --gap-md:         1rem;
+  --gap-lg:         1.5rem;
+  --gap-xl:         2rem;
+  --radius:         0.5rem;
+
+  /* Shadows & Transitions */
+  --shadow-sm:      0 2px 6px rgba(0,0,0,0.15);
+  --shadow-md:      0 4px 12px rgba(0,0,0,0.2);
+  --trans:          0.3s ease;
+}
+
+/* -------------------------
+   Reset & Base Styles
+------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px; scroll-behavior: smooth;
+}
 body {
-    font-family: 'Cinzel', serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #ffe29f, #ffa751);
-    color: #2f241d;
-    line-height: 1.8;
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh);
+  background: var(--bg-page);
+  color: var(--text-primary);
+  min-height: 100vh;
+  text-align: center;
 }
 
-header {
-    background: linear-gradient(to right, #c97d60, #8c4a3a);
-    color: #fff7e6;
-    text-align: center;
-    padding: 25px 0;
-    border-bottom: 4px solid #8c4a3a;
-    font-size: 2rem;
-    text-shadow: 2px 2px 8px #8c4a3a;
-}
-
-h1, h2 {
-    margin: 15px 0;
-    color: #2f241d;
-    font-size: 2.5rem;
-    text-shadow: 1px 1px 5px #8c4a3a;
-    text-transform: uppercase;
-}
-
-/* Dynamic Button */
-button, .btn {
-    background: linear-gradient(to right, #c97d60, #8c4a3a);
-    color: #fff7e6;
-    border: none;
-    padding: 14px 28px;
-    margin: 20px 0;
-    border-radius: 6px;
-    font-size: 18px;
-    cursor: pointer;
-    text-transform: uppercase;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-button:hover, .btn:hover {
-    background: linear-gradient(to left, #c97d60, #8c4a3a);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-}
-
-button:active, .btn:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Styled Dropdown */
-select {
-    background: linear-gradient(to right, #ffe29f, #ffa751);
-    color: #2f241d;
-    border: 2px solid #8c4a3a;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    transition: all 0.3s ease;
-    outline: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-select:hover {
-    background: linear-gradient(to left, #ffe29f, #ffa751);
-    border-color: #c97d60;
-}
-
-select:focus {
-    box-shadow: 0 0 5px rgba(255, 165, 81, 0.6);
-}
-
-/* Footer */
-footer {
-    padding: 20px;
-    background: linear-gradient(to right, #8c4a3a, #5a2b1f);
-    color: #fff7e6;
-    text-align: center;
-    border-top: 4px solid #8c4a3a;
-    font-size: 1rem;
-    text-shadow: 1px 1px 5px #5a2b1f;
-}
-
-/* Links */
-a {
-    color: #8c4a3a;
-    text-decoration: none;
-    font-weight: bold;
-    border-bottom: 2px solid #8c4a3a;
-    transition: color 0.3s ease, border-bottom-color 0.3s ease;
-}
-
-a:hover {
-    color: #c97d60;
-    border-bottom-color: #c97d60;
-}
-
-/* Container */
+/* -------------------------
+   Container Utility
+------------------------- */
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
+  width: 90%; max-width: 1200px;
+  margin: var(--gap-xl) auto;
+  padding: 0 var(--gap-md);
+  text-align: left;
+}
+
+/* -------------------------
+   Header & Title Row
+------------------------- */
+header,
+.title-container {
+  background: linear-gradient(90deg, var(--bg-accent), var(--bg-dark));
+  color: var(--text-accent);
+  padding: var(--gap-lg) 0;
+  box-shadow: var(--shadow-sm);
+}
+.title-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--gap-lg);
+}
+.title-container h1,
+header h1 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xl);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.title-container h2,
+header h2 {
+  font-family: var(--font-body);
+  font-size: var(--fs-lg);
+  margin-top: var(--gap-sm);
+}
+
+/* -------------------------
+   Navigation Bar
+------------------------- */
+nav {
+  background: var(--bg-dark);
+  padding: var(--gap-sm) 0;
+  box-shadow: var(--shadow-sm);
+}
+nav ul {
+  list-style: none;
+  display: flex; justify-content: center;
+  gap: var(--gap-md);
+}
+nav a {
+  font-family: var(--font-body);
+  color: var(--text-accent);
+  text-decoration: none;
+  font-weight: 500;
+  padding: var(--gap-xs) var(--gap-sm);
+  border-radius: var(--radius);
+  transition: background-color var(--trans), color var(--trans);
+}
+nav a:hover {
+  background: var(--bg-accent);
+  color: var(--bg-page);
+}
+
+/* -------------------------
+   Headings & Text
+------------------------- */
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--font-heading);
+  color: var(--bg-dark);
+  margin: var(--gap-md) 0 var(--gap-sm);
+}
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+p, li {
+  color: var(--text-secondary);
+  margin-bottom: var(--gap-md);
+}
+blockquote {
+  border-left: 4px solid var(--bg-accent);
+  padding-left: var(--gap-md);
+  font-style: italic;
+  color: var(--text-secondary);
+  margin: var(--gap-md) 0;
+}
+
+/* -------------------------
+   Buttons & CTAs
+------------------------- */
+.button, .btn {
+  font-family: var(--font-heading);
+  font-size: var(--fs-base);
+  text-transform: uppercase;
+  padding: var(--gap-sm) var(--gap-md);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--trans), transform .2s, box-shadow var(--trans);
+}
+.button {
+  background: var(--bg-accent);
+  color: var(--text-accent);
+  border: none;
+  box-shadow: var(--shadow-md);
+}
+.button:hover {
+  background: var(--bg-dark);
+  transform: translateY(-3px);
+}
+.btn {
+  background: transparent;
+  color: var(--bg-dark);
+  border: 2px solid var(--bg-dark);
+}
+.btn:hover {
+  background: var(--bg-dark);
+  color: var(--text-accent);
+  transform: translateY(-3px);
+}
+
+/* -------------------------
+   Form Elements
+------------------------- */
+label {
+  display: block;
+  margin-bottom: var(--gap-xs);
+  font-weight: 500;
+}
+input, textarea, select {
+  width: 100%; max-width: 400px;
+  padding: var(--gap-sm);
+  margin-bottom: var(--gap-md);
+  border: 1px solid var(--bg-accent);
+  border-radius: var(--radius);
+  background: var(--bg-panel);
+  color: var(--bg-dark);
+  transition: border-color var(--trans);
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--bg-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+/* -------------------------
+   Tables
+------------------------- */
+table {
+  width: 100%; border-collapse: collapse;
+  margin: var(--gap-lg) 0;
+}
+th, td {
+  padding: var(--gap-sm);
+  border: 1px solid var(--bg-dark);
+}
+th {
+  background: var(--bg-panel);
+  color: var(--bg-dark);
+}
+
+/* -------------------------
+   Lists
+------------------------- */
+ul, ol {
+  margin: var(--gap-md) 0; padding-left: 1.5rem;
+}
+li {
+  margin-bottom: var(--gap-sm);
+}
+
+/* -------------------------
+   Cards & Grid Layouts
+------------------------- */
+.grid {
+  display: grid; gap: var(--gap-lg);
+}
+.grid-2 { grid-template-columns: repeat(2,1fr); }
+.grid-3 { grid-template-columns: repeat(3,1fr); }
+.card {
+  background: var(--bg-panel);
+  padding: var(--gap-md);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--trans), box-shadow var(--trans);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* -------------------------
+   Modals
+------------------------- */
+.modal {
+  position: fixed; inset: 0;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.7);
+  padding: var(--gap-lg); z-index: 1000;
+}
+.modal.active { display: flex; }
+.modal-content {
+  background: var(--bg-panel);
+  padding: var(--gap-lg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  max-width: 500px; width: 100%;
+  color: var(--bg-dark);
+  position: relative;
+}
+.modal-close {
+  position: absolute; top: var(--gap-sm); right: var(--gap-sm);
+  background: none; border: none;
+  font-size: 1.25rem; cursor: pointer;
+  color: var(--bg-dark);
+}
+
+/* -------------------------
+   Footer
+------------------------- */
+footer {
+  background: linear-gradient(to right, #8c4a3a, #5a2b1f);
+  padding: var(--gap-md) 0;
+  color: var(--text-accent);
+  text-shadow: 1px 1px 4px var(--bg-dark);
+}
+footer a {
+  color: var(--text-accent);
+  text-decoration: underline;
+}
+footer a:hover {
+  color: var(--bg-dark);
+}
+
+/* -------------------------
+   Responsive
+------------------------- */
+@media (max-width: 768px) {
+  nav ul { flex-wrap: wrap; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .button, .btn { width: 100%; }
 }
