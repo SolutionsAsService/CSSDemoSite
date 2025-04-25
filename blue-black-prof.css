@@ -1,226 +1,319 @@
-/* =========================
-   Blue-Black Professional Theme
-   ========================= */
+/* =========================================
+   Blue-Black Professional Theme — Revamped
+   ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-/* =========================
-   Theme Color & Base Variables
-   ========================= */
 :root {
-  /* Backgrounds */
-  --bg-dark:       #000000;
-  --bg-medium:     #1A1A1A;
-  --bg-light:      #2D2D2D;
+  /* Palette */
+  --bg-page:        #000814;  /* Very dark navy */
+  --bg-panel:       #001d3d;  /* Deep blue panel */
+  --bg-light:       #003566;  /* Lighter blue accents */
 
-  /* Text */
-  --text-primary:  #E0E0E0;
-  --text-secondary:#A0A0A0;
-  --text-muted:    #6E6E6E;
+  --text-primary:   #e0e0e0;  /* Soft white */
+  --text-secondary: #a0a0a0;  /* Mid gray */
 
-  /* Blues */
-  --blue-base:     #0066CC;
-  --blue-light:    #3399FF;
-  --blue-dark:     #004499;
+  --accent:         #00b4d8;  /* Vivid cyan */
+  --accent-dark:    #0077b6;  /* Darker cyan */
 
-  /* Accents */
-  --accent:        var(--blue-base);
-  --white:         #FFFFFF;
-  --black:         #000000;
+  --border:         #003566;
 
-  /* Typography Scale */
-  --type-base:     1rem;
-  --type-lg:       1.125rem;
-  --type-xl:       1.5rem;
-  --type-2xl:      2rem;
+  /* Typography */
+  --font-sans:      'Inter', sans-serif;
+  --fs-base:        1rem;      /* 16px */
+  --fs-lg:          1.125rem;  /* 18px */
+  --fs-xl:          1.5rem;    /* 24px */
+  --lh:             1.6;
 
-  /* Spacing Scale */
-  --space-xs:      0.25rem;
-  --space-sm:      0.5rem;
-  --space-md:      1rem;
-  --space-lg:      1.5rem;
-  --space-xl:      2rem;
+  /* Spacing */
+  --gap-xs:         0.25rem;
+  --gap-sm:         0.5rem;
+  --gap-md:         1rem;
+  --gap-lg:         1.5rem;
+  --gap-xl:         2rem;
+
+  /* Radius & Shadow */
+  --radius:         0.5rem;
+  --shadow-sm:      0 2px 6px rgba(0,0,0,0.5);
+  --shadow-md:      0 4px 12px rgba(0,0,0,0.7);
+
+  /* Transitions */
+  --trans:          0.3s ease;
 }
 
-/* =========================
-   Global Reset & Base Styles
-   ========================= */
-*, *::before, *::after {
-  box-sizing: border-box;
+/* ----------------------------------------
+   Reset & Base
+---------------------------------------- */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg-dark);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh);
+  background-color: var(--bg-page);
   color: var(--text-primary);
-  font-size: var(--type-base);
-  line-height: 1.6;
-  text-align: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
 }
 
-/* =========================
-   Title Container
-   ========================= */
-.title-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--space-lg);
-  padding: var(--space-md);
-  background-color: var(--bg-medium);
-  border-bottom: 2px solid var(--accent);
+/* ----------------------------------------
+   Container Utility
+---------------------------------------- */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: var(--gap-lg) auto;
+  padding: 0 var(--gap-md);
+}
+
+/* ----------------------------------------
+   Title Container & Header
+---------------------------------------- */
+.title-container,
+header {
+  background-color: var(--bg-panel);
+  padding: var(--gap-lg) 0;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
 }
 .title-container h1,
-.title-container h2 {
-  font-size: var(--type-xl);
-  text-transform: uppercase;
-  color: var(--text-primary);
+header h1 {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--accent);
   letter-spacing: 1px;
 }
+.title-container h2,
+header h2 {
+  font-size: var(--fs-lg);
+  color: var(--text-secondary);
+  margin-top: var(--gap-sm);
+}
 
-/* =========================
+/* ----------------------------------------
    Navigation Bar
-   ========================= */
+---------------------------------------- */
 nav {
-  background-color: var(--bg-medium);
-  padding: var(--space-sm);
+  background-color: var(--bg-panel);
+  padding: var(--gap-sm) 0;
+  margin-bottom: var(--gap-lg);
+  box-shadow: var(--shadow-sm);
 }
 nav ul {
   display: flex;
   justify-content: center;
-  gap: var(--space-md);
+  gap: var(--gap-md);
   list-style: none;
 }
 nav a {
-  font-size: var(--type-lg);
-  font-weight: 600;
   color: var(--text-secondary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  font-weight: 600;
+  padding: var(--gap-sm) var(--gap-md);
+  border-radius: var(--radius);
+  transition: background var(--trans), color var(--trans);
 }
 nav a:hover {
+  background-color: var(--bg-light);
   color: var(--accent);
 }
 
-/* =========================
-   Main Container
-   ========================= */
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: var(--space-lg) var(--space-md);
-}
-
-/* =========================
-   Buttons & Interactive
-   ========================= */
-button, .button, .btn {
-  padding: var(--space-sm) var(--space-md);
-  border: none;
-  border-radius: 0.5rem;
-  font-size: var(--type-base);
+/* ----------------------------------------
+   Headings & Text
+---------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--accent);
+  margin: var(--gap-md) 0 var(--gap-sm);
   font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p, li {
+  margin-bottom: var(--gap-md);
+  color: var(--text-secondary);
+}
+blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: var(--gap-md);
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: var(--gap-md) 0;
 }
 
-/* Primary Button */
+/* ----------------------------------------
+   Buttons & CTAs
+---------------------------------------- */
+.btn, .button {
+  font-weight: 600;
+  padding: var(--gap-sm) var(--gap-md);
+  border-radius: var(--radius);
+  cursor: pointer;
+  border: 2px solid var(--accent);
+  transition: background var(--trans), color var(--trans), transform .2s;
+}
 .button {
   background-color: var(--accent);
-  color: var(--white);
+  color: var(--bg-page);
 }
 .button:hover {
-  background-color: var(--blue-light);
+  background-color: var(--accent-dark);
   transform: translateY(-2px);
 }
-
-/* Secondary Button */
 .btn {
-  background-color: var(--bg-medium);
-  color: var(--text-secondary);
-  border: 2px solid var(--accent);
+  background-color: transparent;
+  color: var(--accent);
 }
 .btn:hover {
-  background-color: var(--blue-dark);
-  color: var(--white);
+  background-color: var(--accent);
+  color: var(--bg-page);
   transform: translateY(-2px);
 }
 
-/* =========================
+/* ----------------------------------------
    Form Elements
-   ========================= */
-input[type="text"],
-input[type="email"] {
-  width: 260px;
-  padding: var(--space-sm);
-  margin: var(--space-sm);
+---------------------------------------- */
+label {
+  display: block;
+  margin-bottom: var(--gap-xs);
+  color: var(--text-secondary);
+}
+input, textarea, select {
+  width: 100%;
+  padding: var(--gap-sm);
+  margin-bottom: var(--gap-md);
   border: 1px solid var(--bg-light);
-  border-radius: 0.375rem;
+  border-radius: var(--radius);
   background-color: var(--bg-medium);
   color: var(--text-primary);
-  font-size: var(--type-base);
-  transition: border-color 0.2s ease;
+  transition: border-color var(--trans);
 }
-input:focus {
+input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--accent);
 }
-label {
-  color: var(--text-secondary);
-  font-size: var(--type-base);
+
+/* ----------------------------------------
+   Tables
+---------------------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--gap-lg) 0;
+}
+th, td {
+  padding: var(--gap-sm);
+  border: 1px solid var(--bg-light);
+  text-align: left;
+  color: var(--text-primary);
+}
+th {
+  background-color: var(--bg-medium);
 }
 
-/* =========================
+/* ----------------------------------------
+   Lists
+---------------------------------------- */
+ul, ol {
+  margin: var(--gap-md) 0;
+  padding-left: 1.5rem;
+}
+li {
+  margin-bottom: var(--gap-sm);
+}
+
+/* ----------------------------------------
+   Cards & Grid Utilities
+---------------------------------------- */
+.grid {
+  display: grid;
+  gap: var(--gap-lg);
+}
+.grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+.card {
+  background-color: var(--bg-panel);
+  padding: var(--gap-md);
+  border: 1px solid var(--bg-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--trans), box-shadow var(--trans);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ----------------------------------------
    Modal Popup
-   ========================= */
+---------------------------------------- */
 .modal {
-  display: none;
   position: fixed;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -30%);
-  background-color: var(--bg-medium);
-  color: var(--text-primary);
-  padding: var(--space-lg);
-  border-radius: var(--space-sm);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
-  z-index: 100;
+  inset: 0;
+  background-color: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gap-lg);
+  z-index: 1000;
 }
 .modal.active {
-  display: block;
+  display: flex;
 }
-.modal button {
-  margin-top: var(--space-md);
+.modal-content {
+  background-color: var(--bg-panel);
+  padding: var(--gap-lg);
+  border-radius: var(--radius);
+  border: 2px solid var(--accent);
+  box-shadow: var(--shadow-md);
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  color: var(--text-primary);
+}
+.modal-close {
+  position: absolute;
+  top: var(--gap-sm);
+  right: var(--gap-sm);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
-/* =========================
-   Seasonal Icons (Hidden)
-   ========================= */
-.snowflake,
-.leaf {
-  display: none;
-}
-
-/* =========================
+/* ----------------------------------------
    Footer
-   ========================= */
+---------------------------------------- */
 footer {
-  background-color: var(--accent);
-  color: var(--white);
-  padding: var(--space-md);
+  background-color: var(--bg-panel);
+  color: var(--text-secondary);
   text-align: center;
-  font-size: var(--type-sm);
+  padding: var(--gap-md);
+  margin-top: auto;
+  border-top: 1px solid var(--bg-light);
 }
 footer a {
-  color: var(--white);
+  color: var(--accent);
+  text-decoration: none;
+}
+footer a:hover {
   text-decoration: underline;
 }
 
-/* =========================
-   Transitions & Animations
-   ========================= */
+/* ----------------------------------------
+   Animations
+---------------------------------------- */
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s forwards ease-out;
@@ -228,4 +321,19 @@ footer a {
 }
 @keyframes fadeIn {
   to { opacity: 1; }
+}
+
+/* ----------------------------------------
+   Responsive
+---------------------------------------- */
+@media (max-width: 768px) {
+  nav ul {
+    flex-wrap: wrap;
+  }
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .button, .btn {
+    width: 100%;
+  }
 }
