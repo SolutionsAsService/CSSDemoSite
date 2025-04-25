@@ -1,19 +1,20 @@
 /* =========================================
-   Blue-Black Professional Theme — Revamped
+   Blue-Black Professional Theme — Elite Edition
    ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
 :root {
-  /* Palette */
-  --bg-page:        #000814;  /* Very dark navy */
-  --bg-panel:       #001d3d;  /* Deep blue panel */
-  --bg-light:       #003566;  /* Lighter blue accents */
+  /* Core Palette */
+  --bg-page:        #000814;  /* Deepest navy */
+  --bg-darker:      #00040d;  /* Near-black for extra depth */
+  --bg-panel:       #001d3d;  /* Rich blue panels */
+  --bg-light:       #003566;  /* Accent blue */
 
-  --text-primary:   #e0e0e0;  /* Soft white */
-  --text-secondary: #a0a0a0;  /* Mid gray */
+  --text-primary:   #ffffff;  /* Pure white */
+  --text-secondary: #c0c0c0;  /* Soft silver */
 
-  --accent:         #00b4d8;  /* Vivid cyan */
-  --accent-dark:    #0077b6;  /* Darker cyan */
+  --accent:         #00b4d8;  /* Bright cyan */
+  --accent-dark:    #0077b6;  /* Dark cyan */
 
   --border:         #003566;
 
@@ -31,17 +32,16 @@
   --gap-lg:         1.5rem;
   --gap-xl:         2rem;
 
-  /* Radius & Shadow */
+  /* Corners & Shadows */
   --radius:         0.5rem;
   --shadow-sm:      0 2px 6px rgba(0,0,0,0.5);
   --shadow-md:      0 4px 12px rgba(0,0,0,0.7);
 
-  /* Transitions */
   --trans:          0.3s ease;
 }
 
 /* ----------------------------------------
-   Reset & Base
+   Global Reset & Base
 ---------------------------------------- */
 *,
 *::before,
@@ -58,27 +58,27 @@ body {
   font-family: var(--font-sans);
   font-size: var(--fs-base);
   line-height: var(--lh);
-  background-color: var(--bg-page);
+  background: var(--bg-page);
   color: var(--text-primary);
   min-height: 100vh;
 }
 
 /* ----------------------------------------
-   Container Utility
+   Layout Container
 ---------------------------------------- */
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: var(--gap-lg) auto;
+  margin: var(--gap-xl) auto;
   padding: 0 var(--gap-md);
 }
 
 /* ----------------------------------------
-   Title Container & Header
+   Header & Title
 ---------------------------------------- */
-.title-container,
-header {
-  background-color: var(--bg-panel);
+header,
+.title-container {
+  background: var(--bg-panel);
   padding: var(--gap-lg) 0;
   text-align: center;
   box-shadow: var(--shadow-sm);
@@ -98,12 +98,11 @@ header h2 {
 }
 
 /* ----------------------------------------
-   Navigation Bar
+   Navigation
 ---------------------------------------- */
 nav {
-  background-color: var(--bg-panel);
+  background: var(--bg-panel);
   padding: var(--gap-sm) 0;
-  margin-bottom: var(--gap-lg);
   box-shadow: var(--shadow-sm);
 }
 nav ul {
@@ -114,23 +113,23 @@ nav ul {
 }
 nav a {
   color: var(--text-secondary);
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
   padding: var(--gap-sm) var(--gap-md);
   border-radius: var(--radius);
   transition: background var(--trans), color var(--trans);
 }
 nav a:hover {
-  background-color: var(--bg-light);
-  color: var(--accent);
+  background: var(--accent);
+  color: var(--bg-darker);
 }
 
 /* ----------------------------------------
-   Headings & Text
+   Headings & Typography
 ---------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--accent);
   margin: var(--gap-md) 0 var(--gap-sm);
+  color: var(--accent);
   font-weight: 600;
 }
 h3 { font-size: 1.75rem; }
@@ -145,42 +144,44 @@ p, li {
 blockquote {
   border-left: 4px solid var(--accent);
   padding-left: var(--gap-md);
-  color: var(--text-secondary);
   font-style: italic;
+  color: var(--text-secondary);
   margin: var(--gap-md) 0;
 }
 
 /* ----------------------------------------
    Buttons & CTAs
 ---------------------------------------- */
-.btn, .button {
+.button, .btn {
+  display: inline-block;
   font-weight: 600;
-  padding: var(--gap-sm) var(--gap-md);
   border-radius: var(--radius);
+  padding: var(--gap-sm) var(--gap-md);
   cursor: pointer;
-  border: 2px solid var(--accent);
-  transition: background var(--trans), color var(--trans), transform .2s;
+  transition: background var(--trans), transform .2s;
 }
 .button {
-  background-color: var(--accent);
-  color: var(--bg-page);
+  background: var(--accent);
+  color: var(--bg-darker);
+  border: 2px solid var(--accent);
 }
 .button:hover {
-  background-color: var(--accent-dark);
+  background: var(--accent-dark);
   transform: translateY(-2px);
 }
 .btn {
-  background-color: transparent;
+  background: transparent;
   color: var(--accent);
+  border: 2px solid var(--accent);
 }
 .btn:hover {
-  background-color: var(--accent);
-  color: var(--bg-page);
+  background: var(--accent);
+  color: var(--bg-darker);
   transform: translateY(-2px);
 }
 
 /* ----------------------------------------
-   Form Elements
+   Form Controls
 ---------------------------------------- */
 label {
   display: block;
@@ -191,9 +192,9 @@ input, textarea, select {
   width: 100%;
   padding: var(--gap-sm);
   margin-bottom: var(--gap-md);
-  border: 1px solid var(--bg-light);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  background-color: var(--bg-medium);
+  background: var(--bg-light);
   color: var(--text-primary);
   transition: border-color var(--trans);
 }
@@ -212,12 +213,12 @@ table {
 }
 th, td {
   padding: var(--gap-sm);
-  border: 1px solid var(--bg-light);
+  border: 1px solid var(--border);
   text-align: left;
   color: var(--text-primary);
 }
 th {
-  background-color: var(--bg-medium);
+  background: var(--bg-light);
 }
 
 /* ----------------------------------------
@@ -232,7 +233,7 @@ li {
 }
 
 /* ----------------------------------------
-   Cards & Grid Utilities
+   Card & Grid Utilities
 ---------------------------------------- */
 .grid {
   display: grid;
@@ -241,10 +242,13 @@ li {
 .grid-2 {
   grid-template-columns: 1fr 1fr;
 }
+.grid-3 {
+  grid-template-columns: repeat(3,1fr);
+}
 .card {
-  background-color: var(--bg-panel);
+  background: var(--bg-panel);
   padding: var(--gap-md);
-  border: 1px solid var(--bg-light);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
   transition: transform var(--trans), box-shadow var(--trans);
@@ -260,8 +264,8 @@ li {
 .modal {
   position: fixed;
   inset: 0;
-  background-color: rgba(0,0,0,0.8);
   display: none;
+  background: rgba(0,0,0,0.8);
   align-items: center;
   justify-content: center;
   padding: var(--gap-lg);
@@ -271,7 +275,7 @@ li {
   display: flex;
 }
 .modal-content {
-  background-color: var(--bg-panel);
+  background: var(--bg-panel);
   padding: var(--gap-lg);
   border-radius: var(--radius);
   border: 2px solid var(--accent);
@@ -296,11 +300,10 @@ li {
    Footer
 ---------------------------------------- */
 footer {
-  background-color: var(--bg-panel);
+  background: var(--bg-panel);
   color: var(--text-secondary);
   text-align: center;
   padding: var(--gap-md);
-  margin-top: auto;
   border-top: 1px solid var(--bg-light);
 }
 footer a {
@@ -312,19 +315,19 @@ footer a:hover {
 }
 
 /* ----------------------------------------
-   Animations
+   Micro-Animations
 ---------------------------------------- */
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s forwards ease-out;
-  animation-delay: 0.3s;
+  animation-delay: 0.2s;
 }
 @keyframes fadeIn {
   to { opacity: 1; }
 }
 
 /* ----------------------------------------
-   Responsive
+   Responsive Design
 ---------------------------------------- */
 @media (max-width: 768px) {
   nav ul {
