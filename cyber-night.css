@@ -1,194 +1,362 @@
-/* Cyberpunk Night Cityscape Theme */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap');
+/* ===================================================
+   Cyberpunk Night Cityscape Theme — Revamped v2
+   =================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@400;500&display=swap');
 
-/* Global Styles */
-* {
-  margin: 0;
-  padding: 0;
+:root {
+  /* Core Colors */
+  --bg-page:       #07070a;   /* Almost-black sky */
+  --bg-panel:      #1a1a2e;   /* Deep indigo buildings */
+  --bg-highlight:  #16213e;   /* Subtle mid-tone */
+  --neon-green:    #39ff14;   /* Primary glow */
+  --neon-pink:     #ff4081;   /* Secondary accent */
+  --neon-blue:     #00ffff;   /* Tertiary accent */
+
+  --text-light:    #e0e0e0;   /* Main text */
+  --text-muted:    #999999;   /* Subtext */
+
+  /* Typography */
+  --font-mono:     'Orbitron', sans-serif;
+  --font-body:     'Roboto', sans-serif;
+  --fs-sm:         0.875rem;  /* 14px */
+  --fs-md:         1rem;      /* 16px */
+  --fs-lg:         1.25rem;   /* 20px */
+  --fs-xl:         2rem;      /* 32px */
+  --lh:            1.6;
+
+  /* Spacing */
+  --gap-xs:        0.5rem;
+  --gap-sm:        1rem;
+  --gap-md:        1.5rem;
+  --gap-lg:        2rem;
+  --radius:        0.5rem;
+
+  /* Shadows & transitions */
+  --shadow-neon:   0 0 8px var(--neon-green);
+  --shadow-lg:     0 0 20px rgba(0,255,0,0.3);
+  --trans:         0.25s ease-out;
+}
+
+/* -------------------------
+   Reset & Base
+------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0; padding: 0;
   box-sizing: border-box;
 }
-
+html {
+  font-size: var(--fs-md);
+  scroll-behavior: smooth;
+}
 body {
-  background: #0a0a0a;
-  font-family: 'Orbitron', sans-serif;
-  color: #f1f1f1;
-  overflow: hidden;
-  height: 100vh;
+  font-family: var(--font-body);
+  background: var(--bg-page);
+  color: var(--text-light);
+  line-height: var(--lh);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-h1, h2 {
-  text-align: center;
-  color: #39ff14;
-  font-weight: 500;
-}
-
-h1 {
-  font-size: 5rem;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  text-shadow: 0px 0px 25px #39ff14, 0px 0px 50px #39ff14;
-}
-
-h2 {
-  font-size: 2rem;
-  letter-spacing: 3px;
-  margin-top: 20px;
-}
-
-a {
-  text-decoration: none;
-  color: #ff4081;
-  font-size: 1.2rem;
-  border: 2px solid #ff4081;
-  padding: 10px 20px;
-  margin-top: 50px;
-  border-radius: 5px;
-  background-color: transparent;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-a:hover {
-  background-color: #ff4081;
-  color: #0a0a0a;
-}
-
-/* Cityscape Animation Background */
-@keyframes cityAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
+/* -------------------------
+   Full-screen animated cityscape
+------------------------- */
 .cityscape {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, #ff004c, #3a1a6b, #39ff14);
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #0f0f13, #1f1f2f, #0f0f13);
   background-size: 400% 400%;
-  animation: cityAnimation 10s ease infinite;
+  animation: cityMotion 12s infinite ease alternate;
   z-index: -1;
 }
+@keyframes cityMotion {
+  from { background-position: 0% 0%; }
+  to   { background-position: 100% 100%; }
+}
 
-/* Futuristic Card Layout */
+/* -------------------------
+   Header & Titles
+------------------------- */
+header,
+.title-container {
+  width: 100%;
+  background: var(--bg-panel);
+  padding: var(--gap-lg) 0;
+  text-align: center;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+.title-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap-lg);
+}
+.title-container h1,
+header h1 {
+  font-family: var(--font-mono);
+  color: var(--neon-green);
+  font-size: var(--fs-xl);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: var(--shadow-neon), 0 0 20px var(--neon-green);
+}
+.title-container h2,
+header h2 {
+  font-family: var(--font-body);
+  color: var(--neon-pink);
+  font-size: var(--fs-lg);
+  margin-top: var(--gap-sm);
+  text-shadow: 0 0 8px var(--neon-pink);
+}
+
+/* -------------------------
+   Navigation
+------------------------- */
+nav {
+  background: var(--bg-highlight);
+  padding: var(--gap-sm) 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-lg);
+  list-style: none;
+}
+nav a {
+  position: relative;
+  font-family: var(--font-body);
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  padding: var(--gap-xs) var(--gap-md);
+  transition: color var(--trans);
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 0; height: 2px;
+  background: var(--neon-blue);
+  transition: width var(--trans);
+}
+nav a:hover {
+  color: var(--neon-blue);
+}
+nav a:hover::after {
+  width: 100%;
+}
+
+/* -------------------------
+   Layout Utilities
+------------------------- */
+.container {
+  flex: 1;
+  width: 90%;
+  max-width: 1200px;
+  margin: var(--gap-xl) auto;
+  padding: 0 var(--gap-md);
+}
+
+/* -------------------------
+   Headings & Text
+------------------------- */
+h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  color: var(--neon-green);
+  margin: var(--gap-lg) 0 var(--gap-md);
+}
+h3 { font-size: var(--fs-lg); }
+p, li {
+  margin-bottom: var(--gap-md);
+  color: var(--text-light);
+}
+blockquote {
+  border-left: 4px solid var(--neon-pink);
+  padding-left: var(--gap-md);
+  font-style: italic;
+  color: var(--text-light);
+  margin: var(--gap-lg) 0;
+  text-shadow: 0 0 6px var(--neon-pink);
+}
+
+/* -------------------------
+   Buttons (distinct styles)
+------------------------- */
+.btn-primary {
+  font-family: var(--font-mono);
+  background: var(--neon-green);
+  color: var(--bg-page);
+  padding: var(--gap-sm) var(--gap-lg);
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  transition: background var(--trans), transform .2s;
+}
+.btn-primary:hover {
+  background: var(--neon-blue);
+  transform: translateY(-3px);
+}
+
+.btn-secondary {
+  font-family: var(--font-body);
+  background: transparent;
+  color: var(--neon-pink);
+  border: 2px solid var(--neon-pink);
+  padding: var(--gap-sm) var(--gap-md);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-light);
+  transition: background var(--trans), color var(--trans), transform .2s;
+}
+.btn-secondary:hover {
+  background: var(--neon-pink);
+  color: var(--bg-page);
+  transform: translateY(-3px);
+}
+
+/* -------------------------
+   Cards
+------------------------- */
 .card-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 100px;
-  width: 80%;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: var(--gap-lg);
+  margin-top: var(--gap-xl);
 }
-
 .card {
-  background: rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 255, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: rgba(26,26,46,0.85);
+  padding: var(--gap-lg);
+  border-radius: var(--radius);
+  box-shadow: inset 0 0 10px rgba(0,255,0,0.2), 0 4px 12px rgba(0,0,0,0.5);
+  transition: transform var(--trans), box-shadow var(--trans);
 }
-
 .card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 10px 40px rgba(0, 255, 0, 0.5);
+  transform: translateY(-10px);
+  box-shadow: 0 8px 24px rgba(0,255,0,0.4);
 }
-
 .card h3 {
-  font-size: 1.5rem;
-  color: #39ff14;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-family: var(--font-mono);
+  color: var(--neon-green);
+  margin-bottom: var(--gap-md);
+  letter-spacing: 1px;
 }
-
 .card p {
-  font-size: 1rem;
-  color: #bbb;
-  line-height: 1.6;
+  color: var(--text-light);
+  line-height: var(--lh);
 }
-
 .card a {
-  font-size: 1rem;
-  color: #ff4081;
-  font-weight: bold;
+  color: var(--neon-pink);
   text-decoration: underline;
 }
-
-/* Glowing Effects for Hover States */
 .card a:hover {
-  color: #39ff14;
-  text-shadow: 0px 0px 10px #39ff14, 0px 0px 15px #39ff14;
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px var(--neon-blue);
 }
 
-/* Button Styles */
-button {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  color: #0a0a0a;
-  background-color: #39ff14;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+/* -------------------------
+   Forms & Inputs
+------------------------- */
+label {
+  display: block;
+  margin-bottom: var(--gap-xs);
+  color: var(--text-light);
 }
-
-button:hover {
-  background-color: #ff4081;
-  color: #0a0a0a;
+input, textarea, select {
+  width: 100%;
+  padding: var(--gap-md);
+  margin-bottom: var(--gap-lg);
+  border: 1px solid var(--neon-green);
+  border-radius: var(--radius);
+  background: var(--bg-panel);
+  color: var(--text-light);
+  transition: border-color var(--trans), box-shadow var(--trans);
 }
-
-/* Dropdown Styles */
-select {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  color: #0a0a0a;
-  background-color: #39ff14;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px 0;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--neon-blue);
+  box-shadow: var(--shadow-light);
 }
-
-select:hover {
-  background-color: #ff4081;
-  color: #0a0a0a;
-}
-
-/* Checkbox Styles */
-input[type="checkbox"] {
-  accent-color: #39ff14;
-  width: 20px;
-  height: 20px;
+input[type="checkbox"], input[type="radio"] {
+  accent-color: var(--neon-pink);
+  width: 1.25rem; height: 1.25rem;
   cursor: pointer;
 }
 
-/* Text Field Styles */
-input[type="text"], input[type="email"], input[type="password"], textarea {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  color: #0a0a0a;
-  background-color: #39ff14;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px 0;
-  transition: background-color 0.3s, color 0.3s;
+/* -------------------------
+   Tables
+------------------------- */
+table {
+  width: 100%; border-collapse: collapse;
+  margin: var(--gap-xl) 0;
+}
+th, td {
+  padding: var(--gap-md);
+  border: 1px solid var(--neon-green);
+  text-align: left;
+}
+th {
+  background: var(--bg-highlight);
+  color: var(--neon-green);
 }
 
-input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, textarea:hover {
-  background-color: #ff4081;
-  color: #0a0a0a;
+/* -------------------------
+   Modal
+------------------------- */
+.modal {
+  position: fixed; inset: 0;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+}
+.modal.active { display: flex; }
+.modal-content {
+  background: var(--bg-panel);
+  padding: var(--gap-xl);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-strong);
+  width: 90%; max-width: 500px;
+  color: var(--text-light);
+  position: relative;
+}
+.modal-close {
+  position: absolute; top: var(--gap-sm); right: var(--gap-sm);
+  background: none; border: none;
+  color: var(--neon-pink);
+  font-size: 1.5rem; cursor: pointer;
+  transition: color var(--trans);
+}
+.modal-close:hover {
+  color: var(--neon-blue);
+}
+
+/* -------------------------
+   Footer
+------------------------- */
+footer {
+  background: var(--bg-panel);
+  padding: var(--gap-lg) 0;
+  color: var(--text-light);
+  text-align: center;
+  font-size: var(--fs-sm);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+}
+footer a {
+  color: var(--neon-pink);
+  text-decoration: underline;
+  transition: color var(--trans);
+}
+footer a:hover {
+  color: var(--neon-blue);
+}
+
+/* -------------------------
+   Responsive
+------------------------- */
+@media (max-width: 768px) {
+  .card-container { grid-template-columns: 1fr; }
+  .btn-primary, .btn-secondary { width: 100%; }
+  h1 { font-size: var(--fs-lg); }
+  h2 { font-size: var(--fs-base); }
 }
