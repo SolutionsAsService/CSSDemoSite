@@ -1,243 +1,236 @@
-/* Simple Elegant Theme */
+/* =====================================================
+   Simple Elegant Theme — Revamped
+   ===================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
 
-/* Global Styles */
-* {
+:root {
+  /* Color Palette */
+  --bg-page:        #1a1a1a;       /* Deep charcoal */
+  --bg-panel:       rgba(30,30,30,0.85);
+  --fg-primary:     #f5f1ea;       /* Warm ivory */
+  --fg-secondary:   #c1bfb8;       /* Subtle taupe */
+  --accent:         #d4af7f;       /* Soft gold */
+  --border:         #444;
+
+  /* Typography */
+  --font-heading:   'Playfair Display', serif;
+  --font-body:      'Lora', serif;
+  --fs-sm:          0.875rem;
+  --fs-md:          1rem;
+  --fs-lg:          1.25rem;
+  --fs-xl:          2.5rem;
+  --lh:             1.6;
+
+  /* Spacing */
+  --gap-xs:         0.5rem;
+  --gap-sm:         1rem;
+  --gap-md:         1.5rem;
+  --gap-lg:         2rem;
+  --radius:         0.5rem;
+
+  /* Transitions & Shadows */
+  --trans:          0.3s ease;
+  --shadow-sm:      0 2px 6px rgba(0,0,0,0.5);
+  --shadow-md:      0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* ----------------------------------------
+   Global Reset & Base
+---------------------------------------- */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+html {
+  font-size: var(--fs-md);
+  scroll-behavior: smooth;
+}
 body {
-  font-family: 'Lora', serif;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(34, 34, 34, 1)), url('https://source.unsplash.com/1600x900/?forest,mist') no-repeat center center fixed;
-  background-size: cover;
-  color: #e4e1d7;
-  height: 100vh;
+  font-family: var(--font-body);
+  background: var(--bg-page) 
+              url('https://source.unsplash.com/1600x900/?misty-forest') center/cover no-repeat fixed;
+  color: var(--fg-primary);
+  line-height: var(--lh);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  overflow: hidden;
 }
 
-/* Headings */
+/* ----------------------------------------
+   Typography
+---------------------------------------- */
 h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 4rem;
-  color: #f1e5d6;
+  font-family: var(--font-heading);
+  font-size: var(--fs-xl);
   text-align: center;
-  margin-bottom: 20px;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
   text-transform: uppercase;
-  letter-spacing: 3px;
-  transition: transform 0.3s ease;
+  letter-spacing: 4px;
+  margin-bottom: var(--gap-md);
+  color: var(--accent);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  transition: transform var(--trans);
 }
-
 h1:hover {
   transform: scale(1.05);
 }
-
 h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  color: #c1c1b3;
-  text-align: center;
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
   font-style: italic;
-  margin-bottom: 30px;
+  text-align: center;
+  color: var(--fg-secondary);
+  margin-bottom: var(--gap-lg);
 }
 
-/* Container */
+/* ----------------------------------------
+   Layout Containers
+---------------------------------------- */
 .container {
-  position: relative;
-  width: 100%;
+  width: 90%;
   max-width: 1200px;
-  height: 80vh;
-  display: grid;
-  place-items: center;
+  margin: 0 auto;
+  padding: var(--gap-lg) 0;
 }
 
-/* Card Container */
+/* ----------------------------------------
+   Cards
+---------------------------------------- */
 .card-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 40px;
-  width: 100%;
-  max-width: 1100px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--gap-lg);
 }
-
-/* Card Styles */
 .card {
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.8);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  background: var(--bg-panel);
+  border-radius: var(--radius);
+  padding: var(--gap-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--trans), box-shadow var(--trans);
+  text-align: center;
 }
-
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.9);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
 }
-
 .card img {
   width: 100%;
-  height: 300px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: calc(var(--radius) / 2);
+  margin-bottom: var(--gap-sm);
 }
-
 .card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  color: #f1e5d6;
-  margin-top: 20px;
-  text-align: center;
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  color: var(--accent);
+  margin-bottom: var(--gap-xs);
 }
-
 .card p {
-  font-size: 1rem;
-  color: #c1c1b3;
-  margin-top: 15px;
-  text-align: center;
-  line-height: 1.6;
+  font-size: var(--fs-md);
+  color: var(--fg-secondary);
+  line-height: 1.4;
 }
 
-/* Form Styles */
+/* ----------------------------------------
+   Forms & Inputs
+---------------------------------------- */
 form {
-  width: 100%;
+  background: var(--bg-panel);
+  padding: var(--gap-lg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
   max-width: 600px;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.8);
+  margin: var(--gap-lg) auto;
 }
-
-form .form-group {
-  margin-bottom: 20px;
+.form-group {
+  margin-bottom: var(--gap-md);
 }
-
-form label {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  color: #f1e5d6;
-  margin-bottom: 5px;
+label {
   display: block;
+  margin-bottom: var(--gap-xs);
+  font-weight: bold;
+  color: var(--fg-secondary);
 }
-
-form input[type="text"], form input[type="email"], form textarea, form select {
+input, textarea, select {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #c1c1b3;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #e4e1d7;
-  font-family: 'Lora', serif;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+  padding: var(--gap-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.05);
+  color: var(--fg-primary);
+  font-family: var(--font-body);
+  transition: border-color var(--trans);
 }
-
-form input[type="text"]:focus, form input[type="email"]:focus, form textarea:focus, form select:focus {
-  border-color: #f1e5d6;
+input:focus, textarea:focus, select:focus {
   outline: none;
+  border-color: var(--accent);
 }
 
-form textarea {
-  resize: vertical;
+/* ----------------------------------------
+   Buttons
+---------------------------------------- */
+.btn, button {
+  display: inline-block;
+  padding: var(--gap-sm) var(--gap-lg);
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--bg-page);
+  cursor: pointer;
+  transition: background var(--trans), transform .2s, box-shadow var(--trans);
+}
+.btn:hover, button:hover {
+  background: transparent;
+  color: var(--accent);
+  box-shadow: 0 0 10px var(--shadow-md);
+  transform: translateY(-2px);
 }
 
-form input[type="checkbox"], form input[type="radio"] {
-  margin-right: 10px;
-}
-
-form .form-group.checkbox-group {
-  display: flex;
-  align-items: center;
-}
-
-form .form-group.checkbox-group label {
-  font-size: 1rem;
-  margin-bottom: 0;
-}
-
-/* Dropdown Styles */
-form select {
+/* ----------------------------------------
+   Dropdown Arrow
+---------------------------------------- */
+select {
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-image:
+    url("data:image/svg+xml,<svg viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'><path d='M0 0l5 6 5-6' stroke='%23f5f1ea' stroke-width='2' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right var(--gap-sm) center;
 }
 
-/* Button Styles */
-button {
-  background: rgba(241, 229, 214, 0.8);
-  color: #222;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 5px;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-button:hover {
-  background: rgba(241, 229, 214, 1);
-  transform: scale(1.05);
-}
-
-/* Footer Styles */
+/* ----------------------------------------
+   Footer
+---------------------------------------- */
 footer {
-  width: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 20px;
+  margin-top: auto;
+  background: var(--bg-panel);
+  padding: var(--gap-md) 0;
   text-align: center;
-  color: #e4e1d7;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  color: var(--fg-secondary);
+  font-size: var(--fs-sm);
+}
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
 }
 
-/* Animation Effects */
-@keyframes glowIn {
-  0% {
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+/* ----------------------------------------
+   Responsive
+---------------------------------------- */
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr;
   }
-  100% {
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  .btn, button {
+    width: 100%;
+    text-align: center;
   }
-}
-
-.card:hover::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  animation: glowIn 1.5s ease-out forwards;
-}
-
-/* Soft Scroll Animation */
-@keyframes scrollFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.container, .card-container {
-  animation: scrollFadeIn 1s ease-out forwards;
 }
